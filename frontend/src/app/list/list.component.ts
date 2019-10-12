@@ -7,10 +7,17 @@ import { ListService } from './lists.service';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  title = 'list';
-  courses;
+  title = 'test';
+  // courses;
+  // imageUrl = "https://placehold.it/500";
+  count = 0;
+
+  onCount() {
+    this.count += 1;
+    console.log(`Button was clicked ${this.count} times`);
+  }
   constructor(service: ListService) { 
-    this.courses = service.getList();
+    // this.courses = service.getList();
   }
 
   ngOnInit() {
