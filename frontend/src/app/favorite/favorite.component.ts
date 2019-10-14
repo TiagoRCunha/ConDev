@@ -1,0 +1,21 @@
+import { Component, OnInit, Input } from '@angular/core';
+
+@Component({
+  selector: 'app-favorite',
+  templateUrl: './favorite.component.html',
+  styleUrls: ['./favorite.component.scss']
+})
+export class FavoriteComponent implements OnInit {
+  @Input('isFavorite') isSelected: boolean;
+  favorite: string;
+  constructor() { }
+
+  ngOnInit() {
+    this.favorite = 'favorite'
+  }
+
+  onClick() {
+    this.isSelected = !this.isSelected;
+    this.isSelected ? this.favorite = 'favorite' : this.favorite = 'favorite_border';
+  }
+}
