@@ -8,7 +8,8 @@ import { ListService } from './list/lists.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatButtonModule, MatIconModule,
-         MatExpansionModule } from '@angular/material';
+         MatExpansionModule, MatInputModule,
+         MatTabsModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 
 import { ListComponent } from './list/list.component';
@@ -16,6 +17,7 @@ import { CustomPipesComponent } from './custom-pipes/custom-pipes.component';
 import { SummaryPipe } from './summary.pipe';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { HandleCssComponent } from './handle-css/handle-css.component';
+import { DirectivesComponent } from './directives/directives.component';
 
 
 @NgModule({
@@ -26,6 +28,7 @@ import { HandleCssComponent } from './handle-css/handle-css.component';
     SummaryPipe,
     FavoriteComponent,
     HandleCssComponent,
+    DirectivesComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,9 @@ import { HandleCssComponent } from './handle-css/handle-css.component';
     FormsModule,
     MatButtonModule,
     MatIconModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatInputModule,
+    MatTabsModule
   ],
   providers: [ ListService ],
   bootstrap: [AppComponent]
