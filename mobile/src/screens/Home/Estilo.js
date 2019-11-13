@@ -9,7 +9,7 @@ export default StyleSheet.create({
         flex: 1
     },
     view1: {
-        padding: 10,
+        padding: 0,
         alignItems: 'center',
         justifyContent: 'center'
     },
@@ -18,7 +18,7 @@ export default StyleSheet.create({
         borderColor: 'black',
         borderWidth: 1,
         borderRadius: 5,
-        width: 200
+        width: 250
     },
     image: {
         height: 100,
@@ -33,16 +33,29 @@ export default StyleSheet.create({
         fontSize: 20
     },
     line: {
-        width: 250,
-        borderWidth: 1,
+        width: 300,
+        borderWidth: 0.3,
         marginTop: 50
     },
     esqueciSenha:{
-        alignItems: "flex-end"
+        alignItems: "flex-end",
+        justifyContent: 'flex-end'
 
     },
     textSenha: {
         fontSize: 12
-    }
+    },
+    textoGL: {
+        marginTop: 0,
+        marginLeft: 5
+        
+    },
+    viewGL: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: 20
+    },
+
 
 })
