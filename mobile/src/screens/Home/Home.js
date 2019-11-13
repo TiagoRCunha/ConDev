@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import Estilo from './Estilo'
+import { BotaoEntrar, BotaoCadastrar, BotaoEsqueciSenha, BotaoGoogle, BotaoLinkedin } from '../../components/Button'
+
+
+
 
 export default class mobile extends Component {
   render() {
@@ -12,7 +16,7 @@ export default class mobile extends Component {
           </Text>
         </View>
         <View style={Estilo.view1}>
-          <View style={{ ...Estilo.textInput, marginBottom: 40 }}>
+          <View style={{ ...Estilo.textInput, marginBottom: 30 }}>
             <TextInput
               placeholder="Login"
             />
@@ -21,18 +25,20 @@ export default class mobile extends Component {
             <TextInput
               placeholder="Senha" />
           </View>
-          <TouchableOpacity>
-            <View style={Estilo.esqueciSenha}>
-              <Text style={Estilo.textSenha}>
-                Esqueci minha senha
-              </Text>
-            </View>
-          </TouchableOpacity>
-          <View style={Estilo.line}>
-
+          <View style={{ flexDirection: 'row',width: '100%'}}>
+            <Text>                             </Text>
+            <BotaoEsqueciSenha />
+          </View>
+          
+          <BotaoEntrar />
+          <BotaoCadastrar />
+          <View style={Estilo.line}></View>
+          <View>
+            <BotaoGoogle />
+            <BotaoLinkedin />
           </View>
         </View>
-      </View>
+      </View >
 
     );
   }
