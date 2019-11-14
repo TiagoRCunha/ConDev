@@ -5,8 +5,8 @@ export default StyleSheet.create({
     view: {
         alignItems: 'center',
         justifyContent: 'center',
-        borderWidth: 1,
-        flex: 1
+        flex: 1,
+        paddingVertical: 50
     },
     view1: {
         padding: 0,
