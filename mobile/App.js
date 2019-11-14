@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { AppRegistry, View, Text } from 'react-native';
-import Home from './src/screens/Home/Home'
+import { AppRegistry } from 'react-native';
+import Stack from './stack/Stack'
 
 export default class mobile extends Component {
   render() {
     return (    
-      <Home />
+      <Stack />
     );
   }
 }
