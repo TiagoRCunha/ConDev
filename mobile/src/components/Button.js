@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
 const google = <Ionicons
@@ -21,7 +21,8 @@ export class BotaoEntrar extends Component {
 
     render() {
         return (
-            <TouchableOpacity>
+            <TouchableOpacity
+            onPress={this.props.onPress}>
                 <View style={{ borderWidth: 0.3, borderRadius: 10, paddingHorizontal: 30, paddingVertical: 10, margin: 20 }}>
                     <Text>Entrar</Text>
                 </View>
@@ -42,7 +43,10 @@ export class BotaoCadastrar extends Component {
 
     render() {
         return (
-            <TouchableOpacity>
+            <TouchableOpacity
+            onPress={this.props.onPress}
+            
+            >
                 <View>
                     <Text>Cadastrar</Text>
                 </View>
@@ -61,7 +65,8 @@ export class BotaoEsqueciSenha extends Component {
 
     render() {
         return (
-            <TouchableOpacity>
+            <TouchableOpacity
+            onPress={this.props.onPress}>
                 <View style={{ alignItems: "flex-end", justifyContent: 'flex-end', marginleft: 20 }}>
                     <Text style={{ fontSize: 12 }}>
                         Esqueci minha senha
@@ -82,7 +87,9 @@ export class BotaoGoogle extends Component {
 
     render() {
         return (
-            <TouchableOpacity>
+            <TouchableOpacity
+            onPress={this.props.onPress}
+            >
                 <View style={{
                     flexDirection: 'row',
                     alignItems: 'center',
@@ -108,7 +115,9 @@ export class BotaoLinkedin extends Component {
 
     render() {
         return (
-            <TouchableOpacity>
+            <TouchableOpacity
+            onPress={this.props.onPress}
+            >
                 <View style={{
                     flexDirection: 'row',
                     alignItems: 'center',
@@ -118,6 +127,118 @@ export class BotaoLinkedin extends Component {
                 }}>
                     {linkedin}
                     <Text style={{marginLeft: 5}}>Entrar com Linkedin</Text>
+                </View>
+            </TouchableOpacity>
+
+
+
+        );
+    }
+}
+
+export class BotaoDesenvolvedor extends Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+            <TouchableOpacity
+            onPress={this.props.onPress}>
+                <View style={{ borderWidth: 0.3, borderRadius: 10, paddingHorizontal: 30, paddingVertical: 10, margin: 20 }}>
+                    <Text>Desenvolvedor</Text>
+                </View>
+            </TouchableOpacity>
+        );
+    }
+}
+
+export class BotaoStartup extends Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+            <TouchableOpacity
+            onPress={this.props.onPress}>
+                <View style={{ borderWidth: 0.3, borderRadius: 10, paddingHorizontal: 30, paddingVertical: 10, margin: 0 }}>
+                    <Text>       Startup       </Text>
+                </View>
+            </TouchableOpacity>
+        );
+    }
+}
+
+export class BotaoVoltar extends Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+            <TouchableOpacity
+            onPress={this.props.onPress}
+            
+            >
+                <View style={{marginTop: 30}}>
+                    <Text>Voltar</Text>
+                </View>
+            </TouchableOpacity>
+
+
+
+        );
+    }
+}
+
+export class BotaoSalvar extends Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+            <TouchableOpacity>
+                <View style={{ borderWidth: 0.3, borderRadius: 10, paddingHorizontal: 30, paddingVertical: 10, margin: 20 }}>
+                    <Text>Salvar</Text>
+                </View>
+            </TouchableOpacity>
+
+
+
+        );
+    }
+}
+
+export class BotaoFuncionarios extends Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+            <TouchableOpacity
+            onPress={this.props.onPress}>
+                <View style={{ paddingHorizontal: 2, paddingVertical: 2 }}>
+                    <Text>{this.props.quantidade}</Text>
+                </View>
+            </TouchableOpacity>
+        );
+    }
+}
+
+export class BotaoEnviar extends Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+            <TouchableOpacity
+            onPress={this.props.onPress}>
+                <View style={{ borderWidth: 0.3, borderRadius: 10, paddingHorizontal: 30, paddingVertical: 10, margin: 20 }}>
+                    <Text>Enviar</Text>
                 </View>
             </TouchableOpacity>
 
