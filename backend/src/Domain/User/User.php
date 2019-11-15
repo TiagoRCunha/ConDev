@@ -1,76 +1,306 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Domain\User;
 
 use JsonSerializable;
 
+/**
+ * @author Tiago Rodrigues Cunha
+ */
 class User implements JsonSerializable
 {
     /**
-     * @var int|null
+     * @var string
      */
-    private $id;
+    private $name;
 
     /**
      * @var string
      */
-    private $username;
+    private $email;
 
     /**
      * @var string
      */
-    private $firstName;
+    private $password;
+
+    /**
+     * @var array
+     */
+    private $tag;
+
+    /**
+     * @var array
+     */
+    private $following;
+
+    /**
+     * @var bool
+     */
+    private $active;
 
     /**
      * @var string
      */
-    private $lastName;
+    private $thumbnail;
 
     /**
-     * @param int|null  $id
-     * @param string    $username
-     * @param string    $firstName
-     * @param string    $lastName
+     * @var string
      */
-    public function __construct(?int $id, string $username, string $firstName, string $lastName)
-    {
-        $this->id = $id;
-        $this->username = strtolower($username);
-        $this->firstName = ucfirst($firstName);
-        $this->lastName = ucfirst($lastName);
+    private $ocupation;
+
+    /**
+     * @var string
+     */
+    private $birthDate;
+
+    /**
+     * @var string
+     */
+    private $description;
+
+    /**
+     * @var string
+     */
+    private $locale;
+
+    /**
+     * @param string    $name
+     * @param string    $email
+     * @param string    $password
+     * @param array     $tag
+     * @param array     $following
+     * @param bool      $active
+     * @param string    $thumbnail
+     * @param string    $ocupation
+     * @param string    $birthDate
+     * @param string    $description
+     * @param string    $locale
+     */
+    public function __construct(
+        string $name,
+        string $email,
+        string $password,
+        array $tag,
+        array $following,
+        bool $active,
+        string $thumbnail,
+        string $ocupation,
+        string $birthDate,
+        string $description,
+        string $locale
+    ) {
+        $this->name = $name;
+        $this->email = $email;
+        $this->password = $password;
+        $this->tag = $tag;
+        $this->following = $following;
+        $this->active = $active;
+        $this->thumbnail = $thumbnail;
+        $this->ocupation = $ocupation;
+        $this->birthDate = $birthDate;
+        $this->description = $description;
+        $this->locale = $locale;
     }
 
     /**
-     * @return int|null
+     * @param none
+     * @return string name
      */
-    public function getId(): ?int
+    public function getName(): string
     {
-        return $this->id;
+        return $this->name;
     }
 
     /**
+     * @param string $name
+     * @return void
+     */
+    public function setName(string $name): void
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @param none
+     * @return string email
+     */
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     * @return void
+     */
+    public function setEmail(string $email): void
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * @param none
+     * @return string password
+     */
+    public function getPassword(): string
+    {
+        return $this->password;
+    }
+
+    /**
+     * @param string $password
+     * @return void
+     */
+    public function setPassword(string $password): void
+    {
+        $this->password = $password;
+    }
+
+    /**
+     * @param none
+     * @return array tag
+     */
+    public function getTag(): array
+    {
+        return $this->tag;
+    }
+
+    /**
+     * @param array $tag
+     * @return void
+     */
+    public function setTag(array $tag): void
+    {
+        $this->tag = $tag;
+    }
+
+    /**
+     * @param none
+     * @return array following
+     */
+    public function getFollowing(): array
+    {
+        return $this->following;
+    }
+
+    /**
+     * @param array $following
+     * @return void
+     */
+    public function setFollowing(array $following): void
+    {
+        $this->following = $following;
+    }
+
+    /**
+     * @param none
+     * @return bool active
+     */
+    public function getActive(): bool
+    {
+        return $this->active;
+    }
+
+    /**
+     * @param bool $active
+     * @return void
+     */
+    public function setActive(bool $active): void
+    {
+        $this->active = $active;
+    }
+
+    /**
+     * @param none
+     * @return string thumbnail
+     */
+    public function getThumbnail(): string
+    {
+        return $this->thumbnail;
+    }
+
+    /**
+     * @param string $thumbnail
+     * @return void
+     */
+    public function setThumbnail(string $thumbnail): void
+    {
+        $this->thumbnail = $thumbnail;
+    }
+
+    /**
+     * @param none
+     * @return string ocupation
+     */
+    public function getOcupation(): string
+    {
+        return $this->ocupation;
+    }
+
+    /**
+     * @param string $ocupation
+     * @return void
+     */
+    public function setOcupation(string $ocupation): void
+    {
+        $this->ocupation = $ocupation;
+    }
+
+    /**
+     * @param none
      * @return string
      */
-    public function getUsername(): string
+    public function getBirthDate(): string
     {
-        return $this->username;
+        return $this->birthDate;
     }
 
     /**
-     * @return string
+     * @param string $birthDate
+     * @return void
      */
-    public function getFirstName(): string
+    public function setBirthDate(string $birthDate): void
     {
-        return $this->firstName;
+        $this->birthDate = $birthDate;
     }
 
     /**
-     * @return string
+     * @param none
+     * @return string description
      */
-    public function getLastName(): string
+    public function getDescription(): string
     {
-        return $this->lastName;
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     * @return void
+     */
+    public function setDescription(string $description): void
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @param none
+     * @return string locale
+     */
+    public function getLocale(): string
+    {
+        return $this->locale;
+    }
+
+    /**
+     * @param string $locale
+     * @return void
+     */
+    public function setLocale(string $locale): void
+    {
+        $this->locale = $locale;
     }
 
     /**
@@ -79,10 +309,16 @@ class User implements JsonSerializable
     public function jsonSerialize()
     {
         return [
-            'id' => $this->id,
-            'username' => $this->username,
-            'firstName' => $this->firstName,
-            'lastName' => $this->lastName,
+            'name' => $this->name,
+            'email' => $this->email,
+            'password' => $this->password,
+            'tag' => $this->tag,
+            'following' => $this->following,
+            'active' => $this->active,
+            'ocupation' => $this->ocupation,
+            'birthDate' => $this->birthDate,
+            'description' => $this->description,
+            'locale' => $this->locale
         ];
     }
 }

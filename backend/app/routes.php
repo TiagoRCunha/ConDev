@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 use App\Application\Actions\User\ListUsersAction;
@@ -18,4 +19,8 @@ return function (App $app) {
         $group->get('', ListUsersAction::class);
         $group->get('/{id}', ViewUserAction::class);
     });
+
+    // $app->post('/users', function (Request $request, Response $response) {
+    //     use App\Domain\User\User as User;
+    // });
 };

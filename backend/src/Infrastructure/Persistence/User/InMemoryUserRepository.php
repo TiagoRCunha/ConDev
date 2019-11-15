@@ -22,11 +22,71 @@ class InMemoryUserRepository implements UserRepository
     public function __construct(array $users = null)
     {
         $this->users = $users ?? [
-            1 => new User(1, 'bill.gates', 'Bill', 'Gates'),
-            2 => new User(2, 'steve.jobs', 'Steve', 'Jobs'),
-            3 => new User(3, 'mark.zuckerberg', 'Mark', 'Zuckerberg'),
-            4 => new User(4, 'evan.spiegel', 'Evan', 'Spiegel'),
-            5 => new User(5, 'jack.dorsey', 'Jack', 'Dorsey'),
+            1 => new User(
+                'tiago',
+                'tiago@exemplo.com',
+                '1234',
+                ["Javascript", "Vue", "Angular"],
+                [],
+                true,
+                "",
+                "",
+                "",
+                "",
+                ""
+            ),
+            2 => new User(
+                'John',
+                'John@doe.com',
+                '2346r',
+                ["MySql", "Php", "Python"],
+                [],
+                true,
+                "",
+                "",
+                "",
+                "",
+                ""
+            ),
+            3 => new User(
+                'maico',
+                'maico@exemplo.com',
+                '123wqe',
+                ["Javascript", "Java", "Angular"],
+                [],
+                true,
+                "",
+                "",
+                "",
+                "",
+                ""
+            ),
+            4 => new User(
+                'victor',
+                'victor@exemplo.com',
+                '123re',
+                ["Javascript", "Vue", "Vuex"],
+                [],
+                true,
+                "",
+                "",
+                "",
+                "",
+                ""
+            ),
+            5 => new User(
+                'ebler',
+                'ebler@exemplo.com',
+                'd21ae',
+                ["Delph", "D", "C#"],
+                [],
+                true,
+                "",
+                "",
+                "",
+                "",
+                ""
+            ),
         ];
     }
 
