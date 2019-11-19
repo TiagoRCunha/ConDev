@@ -1,0 +1,16 @@
+{
+    "app" : {
+        "name": "Você aqui",
+        "version": "0.1-alpha",
+        "mode": "dev"
+    },
+
+    "database": {
+        "type": "mongodb",
+        "host": "localhost",
+        "name": "vcaqui",
+        "port": "27017",
+        "user": "usuario",
+        "pass": "senha"
+    }
+}

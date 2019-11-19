@@ -1,0 +1,14 @@
+{
+    "app" : {
+        "name": "ConDev",
+        "version": "0.1-alpha",
+        "mode": "dev"
+    },
+    "dsn": "mongodb+srv://root:qu3pas54@cluster0-nid0i.mongodb.net/test?retryWrites=true&w=majority",
+    "database": {
+        "type": "mongodb",
+        "host": "localhost",
+        "name": "vcaqui",
+        "port": "27017"
+    }
+}
