@@ -1,1 +1,6 @@
-./config/config.exemple.json
+.idea/
+/coverage/
+/vendor/
+/logs/*
+!/logs/README.md
+*.lock
