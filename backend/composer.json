@@ -1,0 +1,28 @@
+{
+    "name": "wanderlei/api_wsc",
+    "description": "API para uso no sistema de intermediação de vendas",
+    "require": {
+        "components/bootstrap": "^4.3",
+        "monolog/monolog": "^2.0",
+        "slim/slim": "^4.1",
+        "slim/psr7": "^0.6.0",
+        "mongodb/mongodb": "^1.5"
+    },
+    "authors": [
+        {
+            "name": "Wanderlei Silva do Carmo",
+            "email": "wander.silva@gmail.com"
+        }
+    ],
+
+    "autoload": {
+	 "psr-7": {
+           "Model\\":"src/Model",
+	       "Controller\\":"src/Controller",
+           "Persistence\\":"src/Persistence"	    
+     }
+    },
+     "scripts": {
+         "start": "php -S 0.0.0.0:4000 -t ./public/"
+     }
+}

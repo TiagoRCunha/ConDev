@@ -1,0 +1,4 @@
+**/config.exemple.json
+/vendor/
+/logs/
+php.ini
