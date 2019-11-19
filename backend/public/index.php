@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 
  *  Arquivo index
@@ -47,9 +48,9 @@ $app->options('/{routes:.+}', function ($request, $response, $args) {
 $app->add(function ($request, $handler) {
     $response = $handler->handle($request);
     return $response
-            ->withHeader('Access-Control-Allow-Origin', '*')
-            ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
-            ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+        ->withHeader('Access-Control-Allow-Origin', '*')
+        ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
+        ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
 });
 
 /**
@@ -59,85 +60,153 @@ $app->add(function ($request, $handler) {
  */
 
 // $app->get('/api/v3/users', UsersController::class, ':getUsers' );
+/**
+ * Definindo hardcode de inserção de banco de dados
+ */
+$user1 =     [
+    "name" => "Wanderlei Silva do Carmo",
+    "email" => "wander@exemple.com",
+    "tag" => ["php", "slim", "laravel"],
+    "following" => [],
+    "active" => true,
+    "ocupation" => "",
+    "birthDate" => "",
+    "description" => "",
+    "locale" => ""
 
-$users = [
-         ["id"=>1, "nome"=>"Wanderlei Silva do Carmo"],
-         ["id"=>2, "nome"=>"Lula Molusco"],
-         ["id"=>3, "nome"=>"Rodrigo Santoro"],
-         ["id"=>4, "nome"=>"José do Carmo"],
-         ["id"=>5, "nome"=>"Mané da Silva"]
 ];
+$users = [
+    [
+        "name" => "Wanderlei Silva do Carmo",
+        "email" => "wander@exemple.com",
+        "tag" => ["php", "slim", "laravel"],
+        "following" => [],
+        "active" => true,
+        "ocupation" => "",
+        "birthDate" => "",
+        "description" => "",
+        "locale" => ""
+
+    ],
+    [
+        "name" => "Lula Molusco",
+        "email" => "lula@exemplo.com",
+        "tag" => [],
+        "following" => [],
+        "active" => true,
+        "ocupation" => "",
+        "birthDate" => "",
+        "description" => "",
+        "locale" => ""
+
+    ],
+    [
+        "name" => "Rodrigo Santoro",
+        "email" => "rodrigo@exemplo.com",
+        "tag" => [],
+        "following" => [],
+        "active" => true,
+        "ocupation" => "",
+        "birthDate" => "",
+        "description" => "",
+        "locale" => ""
+
+    ],
+    [
+        "name" => "José do Carmo",
+        "email" => "jose@exemplo.com",
+        "tag" => [],
+        "following" => [],
+        "active" => true,
+        "ocupation" => "",
+        "birthDate" => "",
+        "description" => "",
+        "locale" => ""
+
+    ],
+    [
+        "name" => "Mané da Silva",
+        "email" => "mane@exemplo.com",
+        "tag" => [],
+        "following" => [],
+        "active" => true,
+        "ocupation" => "",
+        "birthDate" => "",
+        "description" => "",
+        "locale" => ""
+
+    ]
+];
+// Usando este método para escrever no banco de dados
+$inserts = new MongoDB\Driver\BulkWrite(['ordered' => true]);
+// Inserindo o $user1 no banco de dados
+$inserts->insert($user1);
+// $manager vai ser a variavel que vai conectar com o banco de dados e execultar métodos
+$manager = new MongoDB\Driver\Manager("");
+// execultando metodo de inserção no banco de dados
+$manager->executeBulkWrite("CONDEV.user", $inserts);
 
 // Define app routes
 //Retrieve
-$app->get('/api/v2/user/{id}', function (Request $request, Response $response, $args) use ($users) {
-   
-   $id = $args['id'];
+// $app->get('/api/v2/user/{id}', function (Request $request, Response $response, $args) use ($users) {
 
-    $arr =  array_filter($users, function($j) use ($id) {
-        if ($j['id'] ==  $id){
-            return $j;
-        }
-       }, ARRAY_FILTER_USE_BOTH);
+//     $id = $args['id'];
 
-    $response->getBody()->write( json_encode($arr));
+//     $arr =  array_filter($users, function ($j) use ($id) {
+//         if ($j['id'] ==  $id) {
+//             return $j;
+//         }
+//     }, ARRAY_FILTER_USE_BOTH);
 
-    return $response->withHeader('Content-Type', 'application/json');
-});
+//     $response->getBody()->write(json_encode($arr));
+
+//     return $response->withHeader('Content-Type', 'application/json');
+// });
 
 //Create or insert
-$app->post('/user/insert', function( Request $request, Response $response, $args ){
+// $app->post('/user/insert', function (Request $request, Response $response, $args) use ($users) {
 
-$data = [ "nome" => $request->getParsedBody()['nome'], "idade" => $request->getParsedBody()['idade'] ];    
+//     $inserts = new MongoDB\Driver\BulkWrite();
+//     $data = $users;
+//     $payload = json_encode($data);
 
-// $user = new \Model\User();
+//     $response->getBody()->write($payload);
 
-// $user->setNome($data['nome']);
-// $user->setLogin($data['login']);
-//\Persistence\UserDao::insert($user);
-
-$payload = json_encode($data);
-
-$response->getBody()->write($payload);
-
-return $response
-          ->withHeader('Content-Type', 'application/json')
-          ->withStatus(201);
-
-});
+//     return $response
+//         ->withHeader('Content-Type', 'application/json')
+//         ->withStatus(201);
+// });
 
 //Update
-$app->put('/user/update', function( Request $request, Response $response, $args ){
+// $app->put('/user/update', function (Request $request, Response $response, $args) {
 
-    $data = [ "nome" => $request->getParsedBody()['nome'], "idade" => $request->getParsedBody()['idade'] ];    
-    
-    $payload = json_encode($data);
-    
-    $response->getBody()->write($payload);
-    
-    return $response
-              ->withHeader('Content-Type', 'application/json')
-              ->withStatus(201);
-    
-    });
+//     $data = ["nome" => $request->getParsedBody()['nome'], "idade" => $request->getParsedBody()['idade']];
+
+//     $payload = json_encode($data);
+
+//     $response->getBody()->write($payload);
+
+//     return $response
+//         ->withHeader('Content-Type', 'application/json')
+//         ->withStatus(201);
+// });
 
 
-    //Delete
-$app->delete('/user/delete/{id}', function( Request $request, Response $response, $args ){
+//Delete
+// $app->delete('/user/delete/{id}', function (Request $request, Response $response, $args) {
 
-    $data = [ "id" => $args['id'] ];    
-    
-    $payload = json_encode($data);
-    
-    $response->getBody()->write($payload);
-    
-    return $response
-                ->withHeader('Content-Type', 'application/json')
-                ->withStatus(200);
-    
-    });
-    
-            
+//     $data = ["id" => $args['id']];
+
+//     $payload = json_encode($data);
+
+//     $response->getBody()->write($payload);
+
+//     return $response
+//         ->withHeader('Content-Type', 'application/json')
+//         ->withStatus(200);
+// });
+
+
 // Run app
 $app->run();
 
@@ -148,4 +217,3 @@ $app->run();
     //if ( $conn = \Persistence\Connection::getConnection() ):
         //          echo "Sucesso";
         //endif;
-        
