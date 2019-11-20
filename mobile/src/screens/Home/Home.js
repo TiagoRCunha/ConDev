@@ -33,7 +33,7 @@ export default class Home extends Component {
             </View>
 
             <BotaoEntrar
-            onPress={() => Alert.alert('ConDev','Trabalhando fera')} />
+            onPress={() => this.props.navigation.toggleDrawer()} />
             <BotaoCadastrar
               onPress={() => this.props.navigation.push('TipoCadastro')}
             />
