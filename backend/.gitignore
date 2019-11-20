@@ -1,6 +1,5 @@
-.idea/
-/coverage/
+**/config.json
 /vendor/
-/logs/*
-!/logs/README.md
-*.lock
+/logs/
+php.ini
+/public/commands.php
