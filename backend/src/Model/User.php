@@ -3,36 +3,42 @@
 namespace Model;
 
 /**
- * abstract Class: Users
+ * abstract Class: User
  * @author Tiago Rodrigues Cunha
  * 
  * @package Model
  * 
  * @method getName
  * @method getCep
- * @method getAddress
  * @method getPhone
  * @method getEmail
  * @method getPassword
+ * @method getDescription
  * @method getTags
- * @method setName()
+ * @method getActive
+ * @method getLocale
+ * @method setName
  * @method setCep
- * @method setAddress
  * @method setPhone
  * @method setEmail
  * @method setPassword
+ * @method setDescription
  * @method setTags
+ * @method setActive
+ * @method setLocale
  */
 abstract class User
 {
 
      private $name;
      private $cep;
-     private $address;
      private $phone;
      private $email;
      private $password;
+     private $description;
      private $tags;
+     private $active;
+     private $locale;
 
      /**
       * Get the value of name
@@ -70,25 +76,6 @@ abstract class User
      public function setCep(string $cep)
      {
           $this->cep = $cep;
-     }
-
-     /**
-      * Get the value of address
-      * @return address
-      */
-     public function getAddress(): string
-     {
-          return $this->address;
-     }
-
-     /**
-      * Set the value of address
-      * @param string $address
-      * @return none
-      */
-     public function setAddress(string $address)
-     {
-          $this->address = $address;
      }
 
      /**
@@ -149,6 +136,24 @@ abstract class User
      }
 
      /**
+      * Get the value of description
+      * @return description
+      */
+     public function getDescription(): string
+     {
+          return $this->description;
+     }
+
+     /**
+      * Set the value of description
+      * @param string $description
+      * @return none
+      */
+     public function setDescription(string $description)
+     {
+          $this->description = $description;
+     }
+     /**
       * Get the value of tags
       * @return tags
       */
@@ -159,11 +164,49 @@ abstract class User
 
      /**
       * Set the value of tags
-      * @param string $tags
+      * @param array $tags
       * @return none
       */
      public function setTags(array $tags)
      {
           $this->tags = $tags;
+     }
+
+     /**
+      * Get the value of active
+      * @return active
+      */
+     public function getActive(): bool
+     {
+          return $this->active;
+     }
+
+     /**
+      * Set the value of active
+      * @param bool $active
+      * @return none
+      */
+     public function setActive(bool $active)
+     {
+          $this->active = $active;
+     }
+
+     /**
+      * Get the value of locale
+      * @return locale
+      */
+     public function getLocale(): string
+     {
+          return $this->locale;
+     }
+
+     /**
+      * Set the value of locale
+      * @return string $locale
+      * @return none
+      */
+     public function setLocale(string $locale)
+     {
+          $this->locale = $locale;
      }
 }

@@ -60,110 +60,23 @@ $app->add(function ($request, $handler) {
  */
 
 // $app->get('/api/v3/users', UsersController::class, ':getUsers' );
-/**
- * Definindo hardcode de inserção de banco de dados
- */
-$user1 =     [
-    "name" => "Wanderlei Silva do Carmo",
-    "email" => "wander@exemple.com",
-    "tag" => ["php", "slim", "laravel"],
-    "following" => [],
-    "active" => true,
-    "ocupation" => "",
-    "birthDate" => "",
-    "description" => "",
-    "locale" => ""
-
-];
-$users = [
-    [
-        "name" => "Wanderlei Silva do Carmo",
-        "email" => "wander@exemple.com",
-        "tag" => ["php", "slim", "laravel"],
-        "following" => [],
-        "active" => true,
-        "ocupation" => "",
-        "birthDate" => "",
-        "description" => "",
-        "locale" => ""
-
-    ],
-    [
-        "name" => "Lula Molusco",
-        "email" => "lula@exemplo.com",
-        "tag" => [],
-        "following" => [],
-        "active" => true,
-        "ocupation" => "",
-        "birthDate" => "",
-        "description" => "",
-        "locale" => ""
-
-    ],
-    [
-        "name" => "Rodrigo Santoro",
-        "email" => "rodrigo@exemplo.com",
-        "tag" => [],
-        "following" => [],
-        "active" => true,
-        "ocupation" => "",
-        "birthDate" => "",
-        "description" => "",
-        "locale" => ""
-
-    ],
-    [
-        "name" => "José do Carmo",
-        "email" => "jose@exemplo.com",
-        "tag" => [],
-        "following" => [],
-        "active" => true,
-        "ocupation" => "",
-        "birthDate" => "",
-        "description" => "",
-        "locale" => ""
-
-    ],
-    [
-        "name" => "Mané da Silva",
-        "email" => "mane@exemplo.com",
-        "tag" => [],
-        "following" => [],
-        "active" => true,
-        "ocupation" => "",
-        "birthDate" => "",
-        "description" => "",
-        "locale" => ""
-
-    ]
-];
-// Usando este método para escrever no banco de dados
-$inserts = new MongoDB\Driver\BulkWrite(['ordered' => true]);
-// Inserindo o $user1 no banco de dados
-$inserts->insert($user1);
-// $manager vai ser a variavel que vai conectar com o banco de dados e execultar métodos
-$manager = new MongoDB\Driver\Manager(
-    ""
-);
-// execultando metodo de inserção no banco de dados
-$manager->executeBulkWrite("CONDEV.user", $inserts);
 
 // Define app routes
 //Retrieve
-// $app->get('/api/v2/user/{id}', function (Request $request, Response $response, $args) use ($users) {
+$app->get('/api/v2/user/{id}', function (Request $request, Response $response, $args) use ($user1) {
 
-//     $id = $args['id'];
+    $id = $args['_id'];
 
-//     $arr =  array_filter($users, function ($j) use ($id) {
-//         if ($j['id'] ==  $id) {
-//             return $j;
-//         }
-//     }, ARRAY_FILTER_USE_BOTH);
+    $arr =  array_filter($user1, function ($j) use ($id) {
+        if ($j['_id'] ==  $id) {
+            return $j;
+        }
+    }, ARRAY_FILTER_USE_BOTH);
 
-//     $response->getBody()->write(json_encode($arr));
+    $response->getBody()->write(json_encode($user1));
 
-//     return $response->withHeader('Content-Type', 'application/json');
-// });
+    return $response->withHeader('Content-Type', 'application/json');
+});
 
 //Create or insert
 // $app->post('/user/insert', function (Request $request, Response $response, $args) use ($users) {

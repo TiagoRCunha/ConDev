@@ -2,3 +2,4 @@
 /vendor/
 /logs/
 php.ini
+/public/commands.php
