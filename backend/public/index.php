@@ -142,7 +142,9 @@ $inserts = new MongoDB\Driver\BulkWrite(['ordered' => true]);
 // Inserindo o $user1 no banco de dados
 $inserts->insert($user1);
 // $manager vai ser a variavel que vai conectar com o banco de dados e execultar métodos
-$manager = new MongoDB\Driver\Manager("");
+$manager = new MongoDB\Driver\Manager(
+    ""
+);
 // execultando metodo de inserção no banco de dados
 $manager->executeBulkWrite("CONDEV.user", $inserts);
 
