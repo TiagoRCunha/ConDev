@@ -17,6 +17,7 @@ namespace Model;
  * @method getTags
  * @method getActive
  * @method getLocale
+ * @method getThumbnail
  * @method getOcupation
  * @method getFollowing
  * @method getBirthDate
@@ -29,7 +30,8 @@ namespace Model;
  * @method setTags
  * @method setActive
  * @method setLocale
- * @method setOcupation]
+ * @method setThumbnail
+ * @method setOcupation
  * @method setFollowing
  * @method setBirthDate
  */
@@ -42,7 +44,7 @@ class UserDeveloper extends User
   /**
    * Get the value of ocupation
    * @return ocupation
-   */ 
+   */
   public function getOcupation(): string
   {
     return $this->ocupation;
@@ -52,7 +54,7 @@ class UserDeveloper extends User
    * Set the value of ocupation
    * @param string $ocupation
    * @return none
-   */ 
+   */
   public function setOcupation(string $ocupation)
   {
     $this->ocupation = $ocupation;
@@ -61,7 +63,7 @@ class UserDeveloper extends User
   /**
    * Get the value of following
    * @return following
-   */ 
+   */
   public function getFollowing(): array
   {
     return $this->following;
@@ -71,7 +73,7 @@ class UserDeveloper extends User
    * Set the value of following
    * @param array $following
    * @return none
-   */ 
+   */
   public function setFollowing(array $following)
   {
     $this->following = $following;
@@ -80,7 +82,7 @@ class UserDeveloper extends User
   /**
    * Get the value of birthDate
    * @return birthDate
-   */ 
+   */
   public function getBirthDate(): string
   {
     return $this->birthDate;
@@ -90,7 +92,7 @@ class UserDeveloper extends User
    * Set the value of birthDate
    * @param string $birthDate
    * @return none
-   */ 
+   */
   public function setBirthDate(string $birthDate)
   {
     $this->birthDate = $birthDate;
