@@ -55,6 +55,13 @@ export default StyleSheet.create({
         justifyContent: 'center',
         marginTop: 20
     },
+    viewMenu: {
+        height: 50,
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        alignItems: 'flex-start',
+        backgroundColor: '#fff',
+    }
 
 
 })
