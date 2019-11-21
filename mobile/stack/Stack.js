@@ -13,14 +13,15 @@ import Linkedin from '../src/screens/FluxoCadastro/Linkedin'
 import Senha from '../src/screens/Senha/Senha'
 import { createDrawerNavigator } from 'react-navigation-drawer';
 import CustomDrawerContentComponent from '../src/components/Drawer'
+import EditarPerfil from '../src/screens/FluxoDrawer/EditarPerfil'
 
 const DrawerConfig = {
-    contentComponent: ({navigation}) => {
-        return(<CustomDrawerContentComponent navigation={navigation} />)
+    contentComponent: ({ navigation }) => {
+        return (<CustomDrawerContentComponent navigation={navigation} />)
     }
 }
 
-const AppNavigator = createStackNavigator({
+const HomeStack = createStackNavigator({
     Home,
     TipoCadastro,
     Desenvolvedor,
@@ -28,7 +29,8 @@ const AppNavigator = createStackNavigator({
     Linkedin,
     Startup,
     Senha,
-    Feed
+
+
 },
     {
         initialRouteName: 'Home',
@@ -37,17 +39,31 @@ const AppNavigator = createStackNavigator({
 
 );
 
-const DrawerNavigator = createDrawerNavigator({
-    Screen1: {
-        screen: AppNavigator
-    },
-    Screen2: {
-        screen: Senha
-    }
-    
-
-
+const FeedStack = createStackNavigator({
+    Feed,
+    EditarPerfil
 },
-DrawerConfig)
+    {
+        initialRouteName: 'Feed',
+        headerMode: "none"
+    }
+
+)
+
+const RootNavigator = createSwitchNavigator({
+    HomeStack: HomeStack,
+    FeedStack: FeedStack
+
+})
+
+const DrawerNavigator = createDrawerNavigator({
+    Fluxo: {
+        screen: RootNavigator
+    },
+    Editar: {
+        screen: EditarPerfil
+    }
+},
+    DrawerConfig)
 
 export default createAppContainer(DrawerNavigator);
