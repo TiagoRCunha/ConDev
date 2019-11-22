@@ -25,20 +25,27 @@ const menu = <Ionicons
 
 class NavBar extends Component {
 
+    constructor(props){
+        super(props)
+    }
+
     render() {
         return (
 
             <View style={this.props.LarguraMenuFeed ? this.props.LarguraMenuFeed : Estilo.viewMenu}>
                 <TouchableOpacity
                 onPress={()=>{
-                    this.props.navigation.toggleDrawer()
-                }}>
+                    this.props.navigation.toggleDrawer()}}>
                     <View style={{
                         marginLeft: 10
                     }}>
                         {menu}
                     </View>
+                    
                 </TouchableOpacity>
+                <View style={{width: '80%', alignItems: 'center'}}>
+                    <Text style={{fontSize: 20, fontWeight: 'bold'}}>{this.props.text}</Text>
+                </View>
 
 
             </View>
