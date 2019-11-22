@@ -1,10 +1,30 @@
 <?php
 
-require __DIR__ . '/../vendor/autoload.php';
+/**
+ * Rotas
+ */
 
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
-use \Controller\UsersController as UsersController;
+use Pecee\SimpleRouter\SimpleRouter as Router;
+
+require 'simple_router_helper.php';
+Router::setDefaultNamespace('\App\Controller');
+
+/** Rotas */
+Router::get('/', 'HomeController@index')->name('home');
+Router::get('/lojas', 'LojasController@index')->name('lojas');
+Router::get('/produtos', 'ProdutosController@index')->name('produtos');
+Router::get('/pedidos', 'PedidosController@index')->name('pedidos');
+Router::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
+
+// Start the routing
+Router::start();
+
+
+// use Psr\Http\Message\ResponseInterface as Response;
+// use Psr\Http\Message\ServerRequestInterface as Request;
+
+// use \Controller\UserDeveloperController as UserDeveloperController;
 
 /**
  * Obtém lista de usuários
@@ -12,15 +32,9 @@ use \Controller\UsersController as UsersController;
  * @return response json
  */
 
-// $app->get('/api/v3/users', UsersController::class, ':getUsers');
+// $app->get('/api/v3/users', UserDeveloperController::class, ':getUsers');
 
-$app->get('/', function (Request $request, Response $response) {
-  $response->getBody()->write('Hello world');
-
-  return $response
-    ->withHeader('Content-Type', 'test')
-    ->withStatus(201);
-});
+// $app->get('/', UserDeveloperController::class, ':getHello');
 // Define app routes
 //Retrieve
 // $app->get('/api/v2/user/{id}', function (Request $request, Response $response, $args) {
