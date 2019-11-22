@@ -14,7 +14,9 @@ import Senha from '../src/screens/Senha/Senha'
 import { createDrawerNavigator } from 'react-navigation-drawer';
 import CustomDrawerContentComponent from '../src/components/Drawer'
 import EditarPerfil from '../src/screens/FluxoDrawer/EditarPerfil'
-
+import Seguidores from '../src/screens/FluxoDrawer/Seguidores'
+import Configuracoes from '../src/screens/FluxoDrawer/Configuracoes'
+Configuracoes
 const DrawerConfig = {
     contentComponent: ({ navigation }) => {
         return (<CustomDrawerContentComponent navigation={navigation} />)
@@ -41,7 +43,9 @@ const HomeStack = createStackNavigator({
 
 const FeedStack = createStackNavigator({
     Feed,
-    EditarPerfil
+    EditarPerfil,
+    Seguidores,
+    Configuracoes
 },
     {
         initialRouteName: 'Feed',
