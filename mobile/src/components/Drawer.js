@@ -25,6 +25,11 @@ const person = <Ionicons
 />
 
 class CustomDrawerContentComponent extends Component {
+
+    constructor(props) {
+        super(props)
+    }
+
     navLink(nav, text) {
         return (
             <TouchableOpacity
@@ -35,24 +40,25 @@ class CustomDrawerContentComponent extends Component {
             </TouchableOpacity>
         )
     }
+
     render() {
         return (
-            <View>
-                <View style={styles.container}>
-                    <Text>Teste</Text>
-                </View>
+            <ScrollView
+                showsVerticalScrollIndicator={false}
+            >
+
                 <NavBar
-                LarguraMenuFeed
+                    LarguraMenuFeed
                 />
-                <View style={{ height: 200, backgroundColor: 'white', alignItems: 'center', justifyContent: 'center', borderBottomWidth: 0.3 }}>
+                <View style={{ height: 120, backgroundColor: 'white', alignItems: 'center', justifyContent: 'center', borderBottomWidth: 0.3, paddingBottom: 20 }}>
                     {person}
-                    
+
                 </View>
                 <View style={{ height: 400 }}>
                     <TouchableOpacity
-                    onPress={()=> {
-                        // this.props.navigation.push('EditarPerfil')
-                    }}>
+                        onPress={() => {
+                            // this.props.navigation.push('EditarPerfil')
+                        }}>
                         <Text style={{ fontSize: 25, margin: 20 }}>
                             Modo escuro
                         </Text>
@@ -61,23 +67,22 @@ class CustomDrawerContentComponent extends Component {
                         {this.navLink('EditarPerfil', 'Editar perfil')}
                     </View>
                     <TouchableOpacity>
-                        <Text style={{ fontSize: 25, margin: 20 }}>
-                            Configurações
-                        </Text>
+                        <View>
+                            {this.navLink('Configuracoes', 'Configuracoes')}
+
+                        </View>
                     </TouchableOpacity>
                     <TouchableOpacity>
-                        <Text style={{ fontSize: 25, margin: 20 }}>
-                            Seguidores
-                        </Text>
+                        <View>
+                            {this.navLink('Seguidores', 'Seguidores')}
+                        </View>
                     </TouchableOpacity>
                     <TouchableOpacity>
-                        <Text style={{ fontSize: 15, margin: 20 }}>
-                            Sair
-                        </Text>
+                        {this.navLink('HomeStack', 'Sair')}
                     </TouchableOpacity>
 
                 </View>
-            </View>
+            </ScrollView>
         )
     }
 
