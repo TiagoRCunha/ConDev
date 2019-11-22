@@ -26,22 +26,22 @@ class Message
   private $edited;
   private $seen;
   private $send;
-
+  // TODO mudar object para tipo User
   /**
    * Get the value of user
    * @return user
    */
-  public function getUser(): object
+  public function getUser(): User
   {
     return $this->user;
   }
 
   /**
    * Set the value of user
-   * @param object $user
+   * @param User $user
    * @return none
    */
-  public function setUser(object $user)
+  public function setUser(User $user)
   {
     $this->user = $user;
   }
