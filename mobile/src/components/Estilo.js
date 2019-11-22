@@ -58,9 +58,9 @@ export default StyleSheet.create({
     viewMenu: {
         height: 50,
         flexDirection: 'row',
-        justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#fff',
+        elevation: 10
         
     }
 
