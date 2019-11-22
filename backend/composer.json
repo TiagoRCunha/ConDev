@@ -1,28 +1,29 @@
 {
-    "name": "wanderlei/api_wsc",
-    "description": "API para uso no sistema de intermediação de vendas",
-    "require": {
-        "components/bootstrap": "^4.3",
-        "monolog/monolog": "^2.0",
-        "slim/slim": "^4.1",
-        "slim/psr7": "^0.6.0",
-        "mongodb/mongodb": "^1.5"
+  "name": "ConDev",
+  "description": "API para uso no sistema da Condev",
+  "require": {
+    "monolog/monolog": "^2.0",
+    "mongodb/mongodb": "^1.5",
+    "pecee/simple-router": "4.2.0.6"
+  },
+  "authors": [
+    {
+      "name": "Tiago Rodrigues",
+      "email": "tiago.r.c.sn@gmail.com"
     },
-    "authors": [
-        {
-            "name": "Wanderlei Silva do Carmo",
-            "email": "wander.silva@gmail.com"
-        }
-    ],
-
-    "autoload": {
-	 "psr-7": {
-           "Model\\":"src/Model",
-	       "Controller\\":"src/Controller",
-           "Persistence\\":"src/Persistence"	    
-     }
-    },
-     "scripts": {
-         "start": "php -S 0.0.0.0:4000 -t ./public/"
-     }
+    {
+      "name": "Henrique Klayton",
+      "email": "henrque70031@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-7": {
+      "Model\\": "src/Model/",
+      "Controller\\": "src/Controller/",
+      "Persistence\\": "src/Persistence/"
+    }
+  },
+  "scripts": {
+    "start": "php -S 0.0.0.0:4000 -t ./public/"
+  }
 }

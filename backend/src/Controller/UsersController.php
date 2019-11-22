@@ -4,10 +4,9 @@
  *  Classe: UsersController
  */
 
-use Psr\Container\ContainerInterface;
-
 namespace Controller;
 
+use Psr\Container\ContainerInterface;
 
 class UsersController implements ContainerInterface
 {
