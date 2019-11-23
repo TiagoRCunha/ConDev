@@ -9,8 +9,8 @@ use Pecee\SimpleRouter\SimpleRouter as Router;
 require 'simple_router_helper.php';
 Router::setDefaultNamespace('\Controller');
 
-Router::get('/', '\Controller\UsersController@getUser')->name('teste');
-// Router::get('/', '\Controller\UserDeveloperController@getHello')->name('teste');
+// Router::get('/', '\Controller\UsersController@getUser')->name('teste');
+Router::get('/', '\Controller\UserDeveloperController@getHello')->name('teste');
 /** Rotas de exemplo*/
 // Router::get('/', 'HomeController@index')->name('home');
 // Router::get('/lojas', 'LojasController@index')->name('lojas');

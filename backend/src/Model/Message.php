@@ -26,7 +26,7 @@ class Message
   private $edited;
   private $seen;
   private $send;
-  // TODO mudar object para tipo User
+
   /**
    * Get the value of user
    * @return user
@@ -102,22 +102,22 @@ class Message
   {
     $this->seen = $seen;
   }
-  // TODO aqui tem mais um tipo date
+
   /**
    * Get the value of send
    * @return send
    */
-  public function getSend(): date
+  public function getSend(): string
   {
     return $this->send;
   }
 
   /**
    * Set the value of send
-   * @param date $send
+   * @param string $send
    * @return none
    */
-  public function setSend(date $send)
+  public function setSend(string $send)
   {
     $this->send = $send;
   }

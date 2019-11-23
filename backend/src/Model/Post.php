@@ -33,7 +33,7 @@ class Post
   /**
    * Get the value of content
    * @return content
-   */ 
+   */
   public function getContent(): string
   {
     return $this->content;
@@ -43,7 +43,7 @@ class Post
    * Set the value of content
    * @param string $content
    * @return none
-   */ 
+   */
   public function setContent(string $content)
   {
     $this->content = $content;
@@ -52,8 +52,8 @@ class Post
   /**
    * Get the value of caption
    * @return caption
-   */ 
-  public function getCaption():string 
+   */
+  public function getCaption(): string
   {
     return $this->caption;
   }
@@ -62,7 +62,7 @@ class Post
    * Set the value of caption
    * @param string $caption
    * @return none
-   */ 
+   */
   public function setCaption(string $caption)
   {
     $this->caption = $caption;
@@ -71,7 +71,7 @@ class Post
   /**
    * Get the value of tags
    * @return tags
-   */ 
+   */
   public function getTags(): array
   {
     return $this->tags;
@@ -81,27 +81,27 @@ class Post
    * Set the value of tags
    * @param array $tags
    * @return none
-   */ 
+   */
   public function setTags(array $tags)
   {
     $this->tags = $tags;
   }
-  // TODO REVER SOBRE DATE TYPE
+
   /**
    * Get the value of registerDay
    * @return registerDay
-   */ 
-  public function getRegisterDay():date
+   */
+  public function getRegisterDay(): string
   {
     return $this->registerDay;
   }
 
   /**
    * Set the value of registerDay
-   * @param date $registerDay
+   * @param string $registerDay
    * @return none
-   */ 
-  public function setRegisterDay(date $registerDay)
+   */
+  public function setRegisterDay(string $registerDay)
   {
     $this->registerDay = $registerDay;
   }
@@ -109,7 +109,7 @@ class Post
   /**
    * Get the value of deleted
    * @return deleted
-   */ 
+   */
   public function getDeleted(): bool
   {
     return $this->deleted;
@@ -119,7 +119,7 @@ class Post
    * Set the value of deleted
    * @param bool $deleted
    * @return none
-   */ 
+   */
   public function setDeleted(bool $deleted)
   {
     $this->deleted = $deleted;
@@ -128,7 +128,7 @@ class Post
   /**
    * Get the value of type
    * @return type
-   */ 
+   */
   public function getType(): string
   {
     return $this->type;
@@ -138,7 +138,7 @@ class Post
    * Set the value of type
    * @param string $type
    * @return none
-   */ 
+   */
   public function setType(string $type)
   {
     $this->type = $type;

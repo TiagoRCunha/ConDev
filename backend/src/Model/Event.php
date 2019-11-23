@@ -51,22 +51,22 @@ class Event extends Post
   {
     $this->name = $name;
   }
-  // TODO rever uso do tipo date
+
   /**
    * Get the value of startDate
    * @return startDate
    */
-  public function getStartDate(): date
+  public function getStartDate(): string
   {
     return $this->startDate;
   }
 
   /**
    * Set the value of startDate
-   * @param date $startDate
+   * @param string $startDate
    * @return none
    */
-  public function setStartDate(date $startDate)
+  public function setStartDate(string $startDate)
   {
     $this->startDate = $startDate;
   }
@@ -75,17 +75,17 @@ class Event extends Post
    * Get the value of endDate
    * @return endDate
    */
-  public function getEndDate(): date
+  public function getEndDate(): string
   {
     return $this->endDate;
   }
 
   /**
    * Set the value of endDate
-   * @param date $endDate
+   * @param string $endDate
    * @return none
    */
-  public function setEndDate(date $endDate)
+  public function setEndDate(string $endDate)
   {
     $this->endDate = $endDate;
   }
