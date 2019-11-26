@@ -5,6 +5,13 @@ import { BotaoEntrar, BotaoCadastrar, BotaoEsqueciSenha, BotaoGoogle, BotaoLinke
 import NavBar from '../../components/NavBar'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
+const TabIcon = (props) => (
+  <Ionicons
+    name="logo-google"
+    size={30}
+    color={props.focused ? 'gray' : 'darkgray'}
+    />
+)
 
 const image = <Ionicons
   name="md-image"
@@ -37,6 +44,14 @@ const play = <Ionicons
 />
 
 export default class Feed extends Component {
+  constructor(props){
+    super(props)
+  }
+
+  static navigationOptions = {
+    tabBarIcon: TabIcon
+  }
+
   render() {
     return (
       <ScrollView>
