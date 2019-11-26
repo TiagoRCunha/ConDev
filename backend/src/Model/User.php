@@ -31,7 +31,7 @@ namespace Model;
  */
 abstract class User
 {
-  // TODO verificar se todos os atributos são privados, provavelmete existirão protegidos
+
   private $name;
   private $cep;
   private $phone;

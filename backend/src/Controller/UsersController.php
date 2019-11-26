@@ -6,9 +6,7 @@
 
 namespace Controller;
 
-use Psr\Container\ContainerInterface;
-
-class UsersController implements ContainerInterface
+class UsersController
 {
 
   protected $container;
@@ -16,11 +14,9 @@ class UsersController implements ContainerInterface
   private static $arr_users;
 
   // constructor receives container instance
-  public function __construct(ContainerInterface $container)
+  public function __construct()
   {
-    $this->container = $container;
-
-    $this->user = new \Model\User();
+    $this->user = new \Model\UserDeveloper;
 
     self::$arr_users = [];
   }
@@ -34,10 +30,19 @@ class UsersController implements ContainerInterface
   public function getUser(Request $request, Response $response, $args)
   {
 
-    $this->user->setId(1);
-    $this->user->setNome('Wanderlei');
-    $this->user->setLogin('wander');
-    $this->user->setSenha(md5('123456'));
+    // $this->user->setName('john');
+    // $this->user->setCep('9224389');
+    // $this->user->setPhone('09214312');
+    // $this->user->setEmail('john@doe.com');
+    // $this->user->setPassword(md5('123456'));
+    // $this->user->setDescription('');
+    // $this->user->setTags([]);
+    // $this->user->setActive(true);
+    // $this->user->setLocale('');
+    // $this->user->setThumbnail('');
+    // $this->user->setOcupation('');
+    // $this->user->setFollowing([]);
+    // $this->user->setBirthDate('09/07/1960');
 
     $response->getBody()->write(json_encode(self::$arr_users));
 

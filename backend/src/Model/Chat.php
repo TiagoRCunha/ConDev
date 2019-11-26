@@ -86,22 +86,22 @@ class Chat
   {
     $this->content = $content;
   }
-  // TODO rever sobre tipo date
+
   /**
    * Get the value of registerDay
    * @return registerDay
    */
-  public function getRegisterDay(): date
+  public function getRegisterDay(): string
   {
     return $this->registerDay;
   }
 
   /**
    * Set the value of registerDay
-   * @param date $registerDay
+   * @param string $registerDay
    * @return none
    */
-  public function setRegisterDay(date $registerDay)
+  public function setRegisterDay(string $registerDay)
   {
     $this->registerDay = $registerDay;
   }

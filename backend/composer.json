@@ -1,5 +1,5 @@
 {
-  "name": "ConDev",
+  "name": "backend/condev",
   "description": "API para uso no sistema da Condev",
   "require": {
     "monolog/monolog": "^2.0",
@@ -17,10 +17,10 @@
     }
   ],
   "autoload": {
-    "psr-7": {
-      "Model\\": "src/Model/",
-      "Controller\\": "src/Controller/",
-      "Persistence\\": "src/Persistence/"
+    "psr-4": {
+      "Model\\": "./src/Model",
+      "Controller\\": "./src/Controller",
+      "Persistence\\": "./src/Persistence"
     }
   },
   "scripts": {

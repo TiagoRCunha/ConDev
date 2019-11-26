@@ -31,17 +31,17 @@ class Message
    * Get the value of user
    * @return user
    */
-  public function getUser(): object
+  public function getUser(): User
   {
     return $this->user;
   }
 
   /**
    * Set the value of user
-   * @param object $user
+   * @param User $user
    * @return none
    */
-  public function setUser(object $user)
+  public function setUser(User $user)
   {
     $this->user = $user;
   }
@@ -102,22 +102,22 @@ class Message
   {
     $this->seen = $seen;
   }
-  // TODO aqui tem mais um tipo date
+
   /**
    * Get the value of send
    * @return send
    */
-  public function getSend(): date
+  public function getSend(): string
   {
     return $this->send;
   }
 
   /**
    * Set the value of send
-   * @param date $send
+   * @param string $send
    * @return none
    */
-  public function setSend(date $send)
+  public function setSend(string $send)
   {
     $this->send = $send;
   }
