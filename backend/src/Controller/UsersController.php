@@ -27,25 +27,14 @@ class UsersController
    * @param integer $id
    * @return void
    */
-  public function getUser(Request $request, Response $response, $args)
+  public function getUser(string $id)
   {
 
-    // $this->user->setName('john');
-    // $this->user->setCep('9224389');
-    // $this->user->setPhone('09214312');
-    // $this->user->setEmail('john@doe.com');
-    // $this->user->setPassword(md5('123456'));
-    // $this->user->setDescription('');
-    // $this->user->setTags([]);
-    // $this->user->setActive(true);
-    // $this->user->setLocale('');
-    // $this->user->setThumbnail('');
-    // $this->user->setOcupation('');
-    // $this->user->setFollowing([]);
-    // $this->user->setBirthDate('09/07/1960');
+    return \Persistence\UserDAO::getUserById($id);
+    //$response->getBody()->write(json_encode(self::$arr_users));
 
-    $response->getBody()->write(json_encode(self::$arr_users));
+    // return $response->withHeader('Content-Type', 'application/json');
 
-    return $response->withHeader('Content-Type', 'application/json');
+    // return 'recebido o id ' . $id;
   }
 }
