@@ -2,15 +2,14 @@
 
 /**
  * 
- * Class:  MessageDao 
+ * Class:  UserDeveloperDAO 
  */
 
 namespace Persistence;
 
 use \Persistence\IDao as IDao;
 
-// TODO
-class MessageDao implements IDao
+class UserDeveloperDAO implements IDao
 {
 
   function insert(\Model\User $user): bool
@@ -21,6 +20,8 @@ class MessageDao implements IDao
   function getAll()
   { }
   function findById(int $id)
+  { }
+  function findByName(string $name)
   { }
 
   function update(Object $data): bool

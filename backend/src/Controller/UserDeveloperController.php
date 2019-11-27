@@ -13,4 +13,8 @@ class UserDeveloperController
       ->withHeader('Content-Type', 'test')
       ->withStatus(201);
   }
+
+  // public function postUser(Request $request, Response $response) {
+
+  // }
 }
