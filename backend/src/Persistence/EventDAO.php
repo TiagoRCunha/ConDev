@@ -2,7 +2,7 @@
 
 /**
  * 
- * Class:  MessageDao 
+ * Class:  EventDao 
  */
 
 namespace Persistence;
@@ -10,7 +10,7 @@ namespace Persistence;
 use \Persistence\IDao as IDao;
 
 // TODO
-class MessageDao implements IDao
+class EventDao implements IDao
 {
 
   function insert(\Model\User $user): bool

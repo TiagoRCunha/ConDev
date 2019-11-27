@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import { createBottomTabNavigator, createTabNavigator } from 'react-navigation-tabs';
 
 //Importando Cenas
 import Home from '../src/screens/Home/Home'
@@ -16,10 +17,27 @@ import CustomDrawerContentComponent from '../src/components/Drawer'
 import EditarPerfil from '../src/screens/FluxoDrawer/EditarPerfil'
 import Seguidores from '../src/screens/FluxoDrawer/Seguidores'
 import Configuracoes from '../src/screens/FluxoDrawer/Configuracoes'
-Configuracoes
+import Ionicons from 'react-native-vector-icons/Ionicons'
+import Notificacoes from '../src/screens/Notificacoes/Notificacoes'
+import Jobs from '../src/screens/Jobs/Jobs'
+import Chat from '../src/screens/Chat/Chat'
+import Postar from '../src/screens/Postar/Postar'
+
+const google = <Ionicons
+    name="logo-google"
+    size={30}
+    color='#000000'
+/>
+
 const DrawerConfig = {
     contentComponent: ({ navigation }) => {
         return (<CustomDrawerContentComponent navigation={navigation} />)
+    }
+}
+
+const TabConfig = {
+    contentComponent: ({ navigation }) => {
+        return (<TabNavigator navigation={navigation} />)
     }
 }
 
@@ -45,7 +63,10 @@ const FeedStack = createStackNavigator({
     Feed,
     EditarPerfil,
     Seguidores,
-    Configuracoes
+    Configuracoes,
+    Jobs,
+    Notificacoes,
+    Chat
 },
     {
         initialRouteName: 'Feed',
@@ -54,11 +75,54 @@ const FeedStack = createStackNavigator({
 
 )
 
+const TabNav = createBottomTabNavigator(
+    {
+      Home: FeedStack,
+      Chat: Chat,
+      Postar: Postar,
+      "Notificações": Notificacoes,
+      Jobs: Jobs
+    },
+    {
+      defaultNavigationOptions: ({ navigation }) => ({
+        tabBarIcon: ({ focused, horizontal, tintColor }) => {
+          const { routeName } = navigation.state;
+          if (routeName === 'Home') {
+
+            return <Ionicons name={"ios-today"} size={25} color={tintColor} />;
+
+          } else if (routeName === 'Chat') {
+
+            return <Ionicons name={"ios-chatboxes"} size={25} color={tintColor} />;
+
+          } else if (routeName === 'Postar') {
+
+            return <Ionicons name={"md-add-circle-outline"} size={25} color={tintColor} />;
+          
+          } else if (routeName === 'Notificações'){
+              
+            return <Ionicons name={"ios-notifications"} size={25} color={tintColor} />;
+
+          } else if (routeName === 'Jobs'){
+              
+            return <Ionicons name={"ios-wallet"} size={25} color={tintColor} />;
+          }
+          
+        },
+      }),
+      tabBarOptions: {
+        activeTintColor: 'tomato',
+        inactiveTintColor: 'gray',
+      },
+    }
+  );
+
 const RootNavigator = createSwitchNavigator({
     HomeStack: HomeStack,
-    FeedStack: FeedStack
+    TabNavigator: TabNav
 
-})
+}
+)
 
 const DrawerNavigator = createDrawerNavigator({
     Fluxo: {
@@ -69,5 +133,7 @@ const DrawerNavigator = createDrawerNavigator({
     }
 },
     DrawerConfig)
+
+
 
 export default createAppContainer(DrawerNavigator);

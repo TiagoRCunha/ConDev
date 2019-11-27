@@ -4,14 +4,39 @@
  * Rotas
  */
 
+use Pecee\Http\Request;
+use Pecee\Http\Response;
 use Pecee\SimpleRouter\SimpleRouter as Router;
 
 require 'simple_router_helper.php';
 Router::setDefaultNamespace('\Controller');
 
-Router::get('/', function () {
-  return 'Hello world';
-})->name('teste');
+// Router::get('/userDeveloper/{id}/{name}', function ($id, $name) {
+
+//   return 'foi';
+// })->where(['id' => '[0-9]+', 'name' => '[a-z]+']);
+Router::get('/userDeveloper/{password}', function ($password) {
+  $client = new MongoDB\Client(DSN);
+
+  $query = ["password" => $password];
+
+  // $jsonify = json_encode($name);
+
+  $mycursor = $client->CONDEV->UserDeveloper->find($query);
+
+  foreach ($mycursor as $corno) {
+    return $corno["name"];
+  }
+  return "nenhum corno com o nome " . $password . " encontrado";
+});
+
+// Router::post('/userDeveloper', function (Request $request, Response $response) {
+//   // $con = new \Persistence\Connection;
+
+//   $client = new MongoDB\Client(DSN);
+
+//   $client->CONDEV->UserDeveloper->insertOne($request);
+// })->name('teste');
 //Router::get('/', '\Controller\UserDeveloperController@getHello')->name('teste');
 
 Router::get('/user/{id}', function ($userId) {

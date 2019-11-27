@@ -2,7 +2,7 @@
 
 /**
  * 
- * Class:  MessageDao 
+ * Class:  PollDao 
  */
 
 namespace Persistence;
@@ -10,7 +10,7 @@ namespace Persistence;
 use \Persistence\IDao as IDao;
 
 // TODO
-class MessageDao implements IDao
+class PollDao implements IDao
 {
 
   function insert(\Model\User $user): bool
@@ -22,7 +22,6 @@ class MessageDao implements IDao
   { }
   function findById(int $id)
   { }
-
   function update(Object $data): bool
   {
     return false;
