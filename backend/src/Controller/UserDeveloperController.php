@@ -5,13 +5,9 @@ namespace Controller;
 class UserDeveloperController
 {
 
-  public function getHello(Request $request, Response $response)
+  public function getHello()
   {
-    $response->getBody()->write('Hello world');
-
-    return $response
-      ->withHeader('Content-Type', 'test')
-      ->withStatus(201);
+    return 'Hello world';
   }
 
   // public function postUser(Request $request, Response $response) {
