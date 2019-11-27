@@ -14,14 +14,11 @@
             <br>espaso para api google
             <br>
             <br>
-            <div class="row ">
-               <div class="col-md-6 ">
-                    <button type="button " class="btn btn-info btn-block mt-2 " id="logar">LOGIN</button>
-                </div>
-                <div class="col-md-6 ">
-                    <button type="button " class="btn btn-secondary btn-block mt-2" id="cancelarLogin">CANCELAR</button>
-                </div>
-            </div>
+            <button type="button " class="btn btn-secondary btn-block mt-2" id="cancelarLogin">CANCELAR</button>
+            <button type="button " class="btn btn-info btn-block mt-2 " id="logar">LOGIN</button>
+            <router-link to="/LoginRs" >
+              <button type="button " class="btn btn-outline-success btn-block mt-2 ">Esqueci a Senha</button>
+            </router-link>
             <button type="button " class="btn btn-outline-secondary btn-block mt-2 ">Criar Uma conta</button>
         </form>
      </div>

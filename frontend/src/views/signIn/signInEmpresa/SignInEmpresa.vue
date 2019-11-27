@@ -35,7 +35,9 @@
           </div>
         <button type="button " class="btn btn-secondary btn-block mt-2" id="cancelarCadastro">CANCELAR</button>
         <button type="button " class="btn btn-info btn-block mt-2 " value="salvarcadastro" id="cadastro">CADASTRAR</button>
-        <button type="button " class="btn btn-outline-secondary btn-block mt-2 ">Já possuo uma conta!</button>
+        <router-link to="/login">
+          <button type="button " class="btn btn-outline-secondary btn-block mt-2 ">Já possuo uma conta!</button>
+        </router-link>
       </form>
     </div>
   </div>
