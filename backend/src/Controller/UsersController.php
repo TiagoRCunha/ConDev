@@ -24,7 +24,7 @@ class UsersController
   /**
    * Retorno o usuario indentificado pelo id
    *
-   * @param integer $id
+   * @param string $id
    * @return void
    */
   public function getUser(string $id)
@@ -36,5 +36,15 @@ class UsersController
     // return $response->withHeader('Content-Type', 'application/json');
 
     // return 'recebido o id ' . $id;
+  }
+
+  public function setUser()
+  {
+    $values = input()->all([
+      'name', 'cep', 'phone', 'email', 'description',
+      'tags', 'active', 'locale', 'thumbnail', 'companySize', 'CNPJ'
+    ]);
+
+    return \Persistence\UserDAO::insertUser($values);
   }
 }

@@ -43,6 +43,8 @@ Router::get('/', 'UserDeveloperController@getHello')->name('teste');
 
 Router::get('/user/s/{id}', 'UserStartup@getUser')->name('getUser');
 
+Router::post('/user/s/', 'UserStartup@setUser')->name('setUser');
+
 // Router::get('/posts/{post}/comments/{comment}', function ($postId, $commentId) {
 //   // ...
 // });
