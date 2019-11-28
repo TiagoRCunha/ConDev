@@ -2,19 +2,29 @@
 
 namespace Persistence;
 
-class UserDAO extends Connection
+class UserDAO
 {
-
-  // private static $manager = $this->getConnection();
 
   public static function getUserById(string $id)
   {
+    $new_id = new \MongoDB\BSON\ObjectId($id);
+    $query = new \MongoDB\Driver\Query(['_id' => $new_id]);
     // herdando um instancia do mongo
-    // self::$manager->
+    $cursor = Connection::getConnection()->executeQuery('CONDEV.UserStartup', $query);
+
+    // die(var_dump($cursor));
     // $arr_user = [
     //   ['id' => $id, 'name' => 'teste nome']
     // ];
 
-    // return json_encode($arr_user);
+    $arr_users = [];
+
+    foreach ($cursor as $document) {
+
+      $arr_users[] = var_dump($document);
+    };
+
+    // return var_dump($query);
+    return json_encode($arr_users);
   }
 }

@@ -12,7 +12,7 @@ class Connection
     public static function getConnection()
     {
 
-        $manager = new MongoDB\Driver\Manager(DSN);
+        $manager = new \MongoDB\Driver\Manager(DSN);
 
         return $manager;
     }
