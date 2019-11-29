@@ -1,5 +1,6 @@
 <template>
   <div class="login">
+    <NavBar/>
      <div class="text-center">
         <form method="POST " class="contIm bg-dark ">
             <p style="text-align:left">E-mail:
@@ -24,7 +25,16 @@
      </div>
   </div>
 </template>
+<script>
+import NavBar from "@/components/NavBar";
 
+export default {
+  name: "login",
+  components: {
+    NavBar
+  }
+};
+</script>
 <style lang="scss">
 
 .contIm{ //conteiner para as imagens

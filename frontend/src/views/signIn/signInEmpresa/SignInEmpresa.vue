@@ -1,5 +1,6 @@
 <template>
   <div class="signIn">
+    <NavBar/>
     <div class="text-center">
       <form method="POST" class="contIm bg-dark">
           <p style="text-align:left">Nome comercial:
@@ -44,9 +45,14 @@
 </template>
 
 <script>
+import NavBar from "@/components/NavBar";
+
 export default {
-  
-}
+  name: 'signInEmpresa',
+  components: {
+    NavBar,
+  },
+};
 </script>
 
 <style lang="scss">

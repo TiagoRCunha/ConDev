@@ -1,7 +1,7 @@
 <template>
   <div class="signInTipo">
+    <NavBar/>
     <div class="text-center">
-
       <form method="POST" class="contIm bg-dark">
         <Titulo msg="Tipo de Cadastro"/>
         <hr>
@@ -19,11 +19,13 @@
 <script>
 // @ is an alias to /src
 import Titulo from '@/components/Titulo.vue';
+import NavBar from "@/components/NavBar";
 
 export default {
-  name: 'home',
+  name: 'signInTipo',
   components: {
     Titulo,
+    NavBar,
   },
 };
 </script>

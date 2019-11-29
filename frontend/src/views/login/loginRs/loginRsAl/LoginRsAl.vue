@@ -1,12 +1,12 @@
 <template>
   <div class="loginRsAl">
-     <div class="text-center">
+     <NavBar/>
+    <div class="text-center">
         <form method="POST " class="contIm bg-dark ">
           <p style="text-align:left"> Redefinir Senha:
             <input type="password" class="form-control bgColor btn-outline-secondary " name="Senha " id="senha " placeholder="Senha ">
           </p>
           <input type="password" class="form-control bgColor btn-outline-secondary " name="senha" id="confirmarSenha" placeholder="Confirmar senha ">
-          <hr>
           <hr>
           <br>
           <br>espaso para api google
@@ -20,6 +20,16 @@
      </div>
   </div>
 </template>
+
+<script>
+import NavBar from "@/components/NavBar";
+export default {
+  name: "loginRsAl",
+  components: {
+    NavBar
+  }
+};
+</script>
 
 <style lang="scss">
 
