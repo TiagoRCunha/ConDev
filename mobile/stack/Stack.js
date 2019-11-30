@@ -15,6 +15,7 @@ import Senha from '../src/screens/Senha/Senha'
 import { createDrawerNavigator } from 'react-navigation-drawer';
 import CustomDrawerContentComponent from '../src/components/Drawer'
 import EditarPerfil from '../src/screens/FluxoDrawer/EditarPerfil'
+import DetalheSeguidores from '../src/screens/FluxoDrawer/DetalheSeguidores'
 import Seguidores from '../src/screens/FluxoDrawer/Seguidores'
 import Configuracoes from '../src/screens/FluxoDrawer/Configuracoes'
 import Ionicons from 'react-native-vector-icons/Ionicons'
@@ -66,7 +67,8 @@ const FeedStack = createStackNavigator({
     Configuracoes,
     Jobs,
     Notificacoes,
-    Chat
+    Chat,
+    DetalheSeguidores
 },
     {
         initialRouteName: 'Feed',
@@ -127,10 +129,8 @@ const RootNavigator = createSwitchNavigator({
 const DrawerNavigator = createDrawerNavigator({
     Fluxo: {
         screen: RootNavigator
-    },
-    Editar: {
-        screen: EditarPerfil
     }
+    
 },
     DrawerConfig)
 
