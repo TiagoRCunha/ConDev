@@ -7,6 +7,18 @@ import { BotaoEntrar, BotaoCadastrar, BotaoEsqueciSenha, BotaoGoogle, BotaoLinke
 
 
 export default class Home extends Component {
+  constructor(props){
+    super(props)
+    this.state={
+      login: 'condev',
+      senha: '123456',
+      isValid: {
+        login: false,
+        senha: false
+      }
+    }
+  }
+
   render() {
     return (
       <ScrollView> 
@@ -20,6 +32,7 @@ export default class Home extends Component {
             <View style={{ ...Estilo.textInput, marginBottom: 30 }}>
               <TextInput
                 placeholder="Login"
+                
               />
             </View>
             <View style={{ ...Estilo.textInput, marginBottom: 5 }}>
