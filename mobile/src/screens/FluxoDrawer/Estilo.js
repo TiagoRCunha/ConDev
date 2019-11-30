@@ -3,17 +3,19 @@ import { Platform, StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
     view: {
-        alignItems: 'center',
+       
         justifyContent: 'center',
         flex: 1,
-        paddingVertical: 50
+        paddingHorizontal: 10,
+        paddingTop: 10,
+
     },
     view1: {
         padding: 0,
         alignItems: 'center',
         justifyContent: 'center'
     },
-    textInput: {
+    textInput: { 
         backgroundColor: 'white',
         borderColor: 'black',
         borderWidth: 1,
