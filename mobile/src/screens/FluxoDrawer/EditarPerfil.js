@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { View, Text, ScrollView, TextInput } from 'react-native';
 import Estilo from './Estilo'
 import CustomTextInput from '../../components/CustomTextInput'
 import NavBar from '../../components/NavBar'
@@ -11,9 +11,10 @@ import { BotaoDesenvolvedor, BotaoStartup, BotaoVoltar, BotaoSalvar } from '../.
 
 
 
+
 export default class EditarPerfil extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props)
     }
 
@@ -25,26 +26,35 @@ export default class EditarPerfil extends Component {
 
     render() {
         return (
-            <ScrollView>
+            <ScrollView showsVerticalScrollIndicator={false}>
                 <NavBar
-                text="Editar perfil" />
-                <View style={Estilo.view}>
-                    
-                    <CustomTextInput
-                        label={"Nome"} />
-                    <CustomTextInput
-                        label={"Email"} />
-                    <CustomTextInput
-                        label={"Telefone"} />
-                    <CustomTextInput
-                        label={"CPF"} />
-                    <BotaoSalvar />
-                    <BotaoVoltar
-                        onPress={() => this.props.navigation.goBack()}
-                    />
+                    text="Editar perfil" />
+                <ScrollView>
+
+                    <View style={{ padding: 10,width: '100%' }}>
+
+                        <CustomTextInput
+                            label={"Nome"} />
+                        <CustomTextInput
+                            label={"Email"} />
+                        <CustomTextInput
+                            label={"Telefone"} />
+                        <CustomTextInput
+                            label={"CPF"} />
+                        <View style={{ alignItems: 'center' }}>
+                            <Text style={{marginBottom:5 }}>Descreva o seu perfil e suas habilidades</Text>
+                            <TextInput
+                                
+                                style={{ borderWidth: 1, borderRadius: 5, width: '100%', height: '40%' }} />
+                            <BotaoSalvar />
+                            <BotaoVoltar
+                                onPress={() => this.props.navigation.goBack()}
+                            />
+                        </View>
+                    </View>
 
                     <View style={Estilo.line}></View>
-                </View>
+                </ScrollView>
             </ScrollView>
 
         );
