@@ -136,7 +136,7 @@ const style = StyleSheet.create({
         width: 200,
         backgroundColor: '#fff',
         borderWidth: 1,
-        borderColor: 'black',
+        borderColor: 'gray',
         borderRadius: 8,
         
 
