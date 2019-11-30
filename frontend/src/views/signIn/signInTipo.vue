@@ -1,5 +1,6 @@
 <template>
   <div class="signInTipo">
+    <NavBar/>
     <div class="text-center">
       <form method="POST" class="contIm bg-dark">
         <Titulo msg="Tipo de Cadastro"/>
@@ -8,7 +9,7 @@
             <button type="button " class="btn btn-outline-primary btn-block mt-2 " value="signInDev" id="signInEmpresa">Desenvolvedor</button>
         </router-link>
         <router-link to="/signInEmpresa">
-            <button type="button " class="btn btn-outline-success btn-block mt-2 " value="signInEmpresa" id="signInEmpresa">Empresa</button>
+            <button type="button " class="btn btn-outline-success btn-block mt-2" value="signInEmpresa" id="signInEmpresa">Empresa</button>
         </router-link>
       </form>
     </div>
@@ -18,11 +19,13 @@
 <script>
 // @ is an alias to /src
 import Titulo from '@/components/Titulo.vue';
+import NavBar from "@/components/NavBar";
 
 export default {
-  name: 'home',
+  name: 'signInTipo',
   components: {
     Titulo,
+    NavBar,
   },
 };
 </script>

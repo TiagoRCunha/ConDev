@@ -2,7 +2,7 @@
 
 namespace Controller;
 
-class UserDeveloperController
+class UserStartup extends UsersController
 {
 
   public function getHello()
