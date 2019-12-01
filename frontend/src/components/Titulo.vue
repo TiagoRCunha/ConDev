@@ -1,7 +1,7 @@
 <template>
   <div class="titulo">
     <h2>{{ msg }}</h2>
-   
+
   </div>
 </template>
 
@@ -16,4 +16,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+
 </style>

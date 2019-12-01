@@ -1,0 +1,31 @@
+{
+  "tarefas": [
+    {
+      "id": 1,
+      "titulo": "Aprender JavaScript",
+      "concluido": false,
+      "curso": "Vue js"
+    }
+  ],
+  "register": [
+    {
+      "name": "victor",
+      "email": "victor@gmail.com",
+      "password": "123",
+      "is_admin": null,
+      "id": 1
+    }
+  ],
+  "login": [
+    {
+      "email": "victor@gmail.com",
+      "password": "123",
+      "id": 1
+    },
+    {
+      "email": "123",
+      "password": "123",
+      "id": 2
+    }
+  ]
+}

@@ -1,58 +1,70 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
-import Home from '../views/Home.vue';
+import Vue from "vue"
+import Router from "vue-router"
+import Home from "@/components/Home"
+import NavBar from "@/components/NavBar"
+import NavbarFeed from "@/components/NavbarFeed"
+import Titulo from "@/components/Titulo"
+import Login from "@/components/login/Login"
+import LoginRs from "@/components/login/loginRs/LoginRs"
+import LoginRsAl from "@/components/login/loginRs/loginRsAl/LoginRsAl"
+import signInTipo from "@/components/signIn/signInTipo"
+import SignInDev from "@/components/signIn/signInDev/SignInDev"
+import SignInEmpresa from "@/components/signIn/signInEmpresa/SignInEmpresa"
 
-Vue.use(VueRouter);
+Vue.use(Router)
 
-const routes = [{
-        path: '/',
-        name: 'home',
-        component: Home,
-    },
-    {
-        path: '/login',
-        name: 'login',
-        component: () =>
-            import ( /* webpackChunkName: "about" */ '../views/login/Login.vue'),
-    },
-    {
-        path: '/loginRs',
-        name: 'loginRs',
-        component: () =>
-            import ( /* webpackChunkName: "about" */ '../views/login/loginRs/LoginRs.vue'),
-    },
-    {
-        path: '/loginRsAl',
-        name: 'loginRsAl',
-        component: () =>
-            import ( /* webpackChunkName: "about" */ '../views/login/loginRs/loginRsAl/LoginRsAl.vue'),
-    },
-    {
-        path: '/signInTipo',
-        name: 'signInTipo',
-        component: () =>
-            import ( /* webpackChunkName: "about" */ '../views/signIn/signInTipo.vue'),
-    },
-    {
-        path: '/signInDev',
-        name: 'signInDev',
-        component: () =>
-            import ( /* webpackChunkName: "about" */ '../views/signIn/signInDev/SignInDev.vue'),
-    },
-    {
-        path: '/signInEmpresa',
-        name: 'signInEmpresa',
-        component: () =>
-            import ( /* webpackChunkName: "about" */ '../views/signIn/signInEmpresa/SignInEmpresa.vue'),
-    },
-    
+export default new Router({
+    routes: [
+        {
+            path: "/",
+            name: "Home",
+            component: Home
+        },
+        {
+            path: "/NavBar",
+            name: "NavBar",
+            component: NavBar
+        },
+        {
+            path: "/NavbarFeed",
+            name: "NavbarFeed",
+            component: NavbarFeed
+        },
+        {
+            path: "/Titulo",
+            name: "Titulo",
+            component: Titulo
+        },
+        {
+            path: "/Login",
+            name: "Login",
+            component: Login
+        },
+        {
+            path: "/LoginRs",
+            name: "LoginRs",
+            component: LoginRs
+        },
+        {
+            path: "/LoginRsAl",
+            name: "LoginRsAl",
+            component: LoginRsAl
+        },
+        {
+            path: "/signInTipo",
+            name: "signInTipo",
+            component: signInTipo
+        },
+        {
+            path: "/SignInDev",
+            name: "SignInDev",
+            component: SignInDev
+        },
+        {
+            path: "/SignInEmpresa",
+            name: "SignInEmpresa",
+            component: SignInEmpresa
+        }
 
-];
-
-const router = new VueRouter({
-    mode: 'history',
-    base: process.env.BASE_URL,
-    routes,
-});
-
-export default router;
+    ]
+})
