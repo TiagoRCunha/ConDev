@@ -2,7 +2,6 @@
 
 namespace Persistence;
 
-use Model\UserStartup;
 
 class UserDAO
 {
@@ -18,10 +17,9 @@ class UserDAO
 
     foreach ($cursor as $document) {
 
-      $arr_users[] = var_dump($document);
+      $arr_users[] = $document;
     };
 
-    // return var_dump($query);
     return json_encode($arr_users);
   }
 
@@ -31,6 +29,6 @@ class UserDAO
     $bulk->insert($user);
     $cursor = Connection::getConnection();
 
-    $result = $cursor->executeBulkWrite(DB_NAME . '.UserStartup', $bulk);
+    return $result = $cursor->executeBulkWrite(DB_NAME . '.UserStartup', $bulk);
   }
 }
