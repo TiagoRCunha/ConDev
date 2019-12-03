@@ -2,16 +2,19 @@
   <div class="login">
     <NavBar />
     <div class="text-center">
-      <div class="summary text-red" v-if="$v.form.$error">Favor preencher todos os campos</div>
-      <form @submit="formulario" class="contIm bg-dark" novalidate="true">
-        <div class="px-4" :class="{ 'hasError': $v.form.email.$error }">
+   
+      <form @submit.prevent="submit" class="contIm bg-dark" novalidate="true">
+          <div class="form-group" :class="{ 'form-group--error': $v.email.$error }">
           <label style="text-align:left">Email</label>
-          <input type="email" class="form-control bgColor btn-outline-secondary" placeholder="Email" v-model="email"/> 
+          <input type="email" class="form-control bgColor btn-outline-secondary" placeholder="Email" v-model="email" :class="status($v.email)" v-model.trim="$v.email.$model"/> 
         </div>
+         <div style="color:red" v-if="!$v.email.minLength">* Email é obrigatório.</div>
         <hr />
-        <div class="px-4" :class="{ 'hasError': $v.form.password.$error }">
+          <div class="form-group" :class="{ 'form-group--error': $v.password.$error }">
           <label style="text-align:left">Senha</label>
-          <input type="password" class="form-control bgColor btn-outline-secondary" placeholder="Email" v-model="password"/>
+          <div >
+          <input type="password" class="form-control bgColor btn-outline-secondary" placeholder="password" v-model="password" :class="status($v.password)" v-model.trim="$v.password.$model"/> 
+          </div>
         </div>
         <hr />
         <br />
@@ -19,7 +22,12 @@
         <br />
         <br />
         <button type="button " class="btn btn-secondary btn-block mt-2" id="cancelarLogin">CANCELAR</button>
-        <button type="button " class="btn btn-info btn-block mt-2" id="logar">LOGIN</button>
+        <button  type="button " class="btn btn-info btn-block mt-2" >LOGIN</button>
+        
+        <p style="color:red" class="typo__p" v-if="submitStatus === 'ERROR'" >Por favor preencha os campos obrigatórios</p>
+    
+        <p class="typo__p"  v-if="submitStatus === 'OK'"></p>
+
         <router-link to="/LoginRs">
           <button type="button " class="btn btn-outline-success btn-block mt-2">Esqueci a Senha</button>
         </router-link>
@@ -31,30 +39,45 @@
 
 <script>
 import NavBar from "@/components/NavBar";
-import { required, email, minLength } from "vuelidate/lib/validators";
+import { required, minLength } from 'vuelidate/lib/validators'
 
 export default {
   data() {
     return {
       email: "",
-      password: ""
+      password: "",
+      submitStatus: null
     };
+  },
+
+  validations: {
+    email: {
+      required,
+      minLength: minLength(1)
+    },
+    password: {
+      required,
+      minLength: minLength(1)
+    }
+
   },
 
   components: {
     NavBar
   },
-
-  validations: {
-    form: {
-      password: { required, min: minLength(10) },
-      email: { required, email },
-    }
-  },
   methods: {
-    formulario(e) {
-      e.preventDefault();
-      this.axios
+   
+     submit() {
+      this.$v.$touch()
+      if (this.$v.email.minLength) {
+        this.submitStatus = 'OK'
+      }
+      if (this.$v.$invalid) {
+        this.submitStatus = 'ERROR'
+      }
+      else {
+        this.submitStatus = 'OK'
+          this.axios
         .post(" http://localhost:3000/login", {
           email: this.email,
           password: this.password
@@ -66,11 +89,15 @@ export default {
         })
         .catch(e => {
           console.error(e);
-          console.log("Não pode efetuar login");
+          alert("Não pode efetuar login");
         });
-      this.$v.form.$touch();
-      if (this.$v.form.$error) return;
-      alert("Formulario enviado");
+      }
+    },
+    status(validation) {
+    	return {
+      	error: validation.$error,
+        dirty: validation.$dirty
+      }
     }
   }
 };
@@ -89,4 +116,31 @@ export default {
   border-radius: 0.5em;
   box-shadow: 0px 0px 10px 0px #121212;
 }
+
+input {
+  border: 1px solid silver;
+  border-radius: 4px;
+  background: white;
+  padding: 5px 10px;
+}
+
+
+.dirty {
+  border-color: #5A5;
+  background: #EFE;
+}
+
+.dirty:focus {
+  outline-color: #8E8;
+}
+
+.error {
+  border-color: red;
+  background: #FDD;
+}
+
+.error:focus {
+  outline-color: #F99;
+}
+
 </style>
