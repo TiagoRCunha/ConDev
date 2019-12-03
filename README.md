@@ -11,9 +11,6 @@ Equipe: Tiago Rodrigues, Caio Eduardo, Victor Henrrique, Henrique Klayton, Jefer
 
 Restful API em Slim
 
-PDOMongo desenvolvido por Pablo Henrique Penha Silva
-https://github.com/pablohpsilva/PDOMongo
-
 ## docs
 
 Artefatos e projeto técnico

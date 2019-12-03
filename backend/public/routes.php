@@ -45,6 +45,10 @@ Router::get('/user/s/{id}', 'UserStartup@getUser')->name('getUser');
 
 Router::post('/user/s/', 'UserStartup@setUser')->name('setUser');
 
+Router::get('/user/{user_id}/c/{chat_id}', 'ChatController@getChat')->name('getChat');
+
+Router::get('/user/{user_id}/m/{message_id}', 'MessageController@getMessage')->name('getMessage');
+
 // Router::get('/posts/{post}/comments/{comment}', function ($postId, $commentId) {
 //   // ...
 // });
