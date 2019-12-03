@@ -39,13 +39,10 @@ class MessageController
     // return 'recebido o id ' . $id;
   }
 
-  public function setUser()
+  public function setMessage()
   {
-    $values = input()->all([
-      'name', 'cep', 'phone', 'email', 'description',
-      'tags', 'active', 'locale', 'thumbnail', 'companySize', 'CNPJ'
-    ]);
+    $values = input()->all();
 
-    return \Persistence\UserDAO::insertUser($values);
+    return \Persistence\MessageDAO::insertMessage($values);
   }
 }

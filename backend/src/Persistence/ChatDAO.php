@@ -7,9 +7,7 @@
 
 namespace Persistence;
 
-use \Persistence\IDao as IDao;
 
-// TODO
 class ChatDao
 {
 
@@ -31,14 +29,13 @@ class ChatDao
     return json_encode($arr_chat);
   }
 
-  function getAll()
-  { }
-  function findById(int $id)
-  { }
-
-  function update(Object $data): bool
+  public static function insertChat($chat)
   {
-    return false;
+    $bulk = new \MongoDB\Driver\BulkWrite();
+    $bulk->insert($chat);
+    $cursor = Connection::getConnection();
+
+    return $result = $cursor->executeBulkWrite(DB_NAME . '.Chat', $bulk);
   }
 
   function delete(Object $data): bool

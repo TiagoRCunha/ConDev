@@ -7,45 +7,34 @@
 
 namespace Persistence;
 
-use \Persistence\IDao as IDao;
-
-class UserStartupDAO implements IDao
+class UserStartupDAO
 {
 
-      function insert(\Model\UserDeveloper $user): object
-      {
-            $inserts = new MongoDB\Driver\BulkWrite(['ordered' => true]);
+  public static function getUserById(string $id)
+  {
+    $new_id = new \MongoDB\BSON\ObjectId($id);
+    $query = new \MongoDB\Driver\Query(['_id' => $new_id]);
+    // herdando um instancia do mongo
+    $cursor = Connection::getConnection()->executeQuery(DB_NAME . '.UserStartup', $query);
 
-            $inserts->insert($user);
-            // $manager->executeBulkWrite("CONDEV.user", $inserts);
-            //  = [
-            //       "name" => "",
-            //       "email" => "",
-            //       "tag" => ["php", "slim", "laravel"],
-            //       "following" => [],
-            //       "active" => true,
-            //       "ocupation" => "",
-            //       "birthDate" => "",
-            //       "description" => "",
-            //       "locale" => ""
-            // ];
-            return $user;
-      }
+    $arr_users = [];
 
-      function getAll()
-      { }
-      function findById(int $id)
-      { }
-      function findByName(string $name)
-      { }
+    foreach ($cursor as $document) {
 
-      function update(Object $data): bool
-      {
-            return false;
-      }
+      $arr_users[] = $document;
+    };
 
-      function delete(Object $data): bool
-      {
-            return false;
-      }
+    return json_encode($arr_users);
+  }
+
+  public static function insertUser($user)
+  {
+    $bulk = new \MongoDB\Driver\BulkWrite();
+    $bulk->insert($user);
+    $cursor = Connection::getConnection();
+
+    $result = $cursor->executeBulkWrite(DB_NAME . '.UserStartup', $bulk);
+
+    return json_encode($result);
+  }
 }

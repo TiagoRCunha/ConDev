@@ -7,30 +7,34 @@
 
 namespace Persistence;
 
-use \Persistence\IDao as IDao;
-
-class UserDeveloperDAO implements IDao
+class UserDeveloperDAO
 {
 
-  function insert(\Model\User $user): bool
+  public static function getUserById(string $id)
   {
-    return false;
+    $new_id = new \MongoDB\BSON\ObjectId($id);
+    $query = new \MongoDB\Driver\Query(['_id' => $new_id]);
+    // herdando um instancia do mongo
+    $cursor = Connection::getConnection()->executeQuery(DB_NAME . '.UserDeveloper', $query);
+
+    $arr_users = [];
+
+    foreach ($cursor as $document) {
+
+      $arr_users[] = $document;
+    };
+
+    return json_encode($arr_users);
   }
 
-  function getAll()
-  { }
-  function findById(int $id)
-  { }
-  function findByName(string $name)
-  { }
-
-  function update(Object $data): bool
+  public static function insertUser($user)
   {
-    return false;
-  }
+    $bulk = new \MongoDB\Driver\BulkWrite();
+    $bulk->insert($user);
+    $cursor = Connection::getConnection();
 
-  function delete(Object $data): bool
-  {
-    return false;
+    $result = $cursor->executeBulkWrite(DB_NAME . '.UserDeveloper', $bulk);
+
+    return json_encode($result);
   }
 }

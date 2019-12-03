@@ -9,7 +9,6 @@ namespace Controller;
 class UsersController
 {
 
-  protected $container;
   private $user;
   private static $arr_users;
 

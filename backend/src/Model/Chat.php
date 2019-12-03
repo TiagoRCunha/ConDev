@@ -10,7 +10,6 @@ namespace Model;
  * 
  * @method getUsers
  * @method getCaption
- * @method getContent
  * @method getRegisterDay
  * @method getMessages
  * @method getBlocked
@@ -47,25 +46,6 @@ class Chat
   public function setUsers(array $users)
   {
     $this->users = $users;
-  }
-
-  /**
-   * Get the value of caption
-   * @return caption
-   */
-  public function getCaption(): string
-  {
-    return $this->caption;
-  }
-
-  /**
-   * Set the value of caption
-   * @param string $caption
-   * @return none
-   */
-  public function setCaption(string $caption)
-  {
-    $this->caption = $caption;
   }
 
   /**

@@ -9,7 +9,6 @@ namespace Controller;
 class ChatController
 {
 
-  protected $container;
   private $user;
   private static $arr_chat;
 
@@ -38,13 +37,10 @@ class ChatController
     // return 'recebido o id ' . $id;
   }
 
-  public function setUser()
+  public function setChat()
   {
-    $values = input()->all([
-      'name', 'cep', 'phone', 'email', 'description',
-      'tags', 'active', 'locale', 'thumbnail', 'companySize', 'CNPJ'
-    ]);
+    $values = input()->all();
 
-    return \Persistence\UserDAO::insertUser($values);
+    return \Persistence\ChatDAO::insertChat($values);
   }
 }

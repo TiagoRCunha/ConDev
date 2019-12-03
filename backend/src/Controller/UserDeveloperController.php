@@ -5,12 +5,45 @@ namespace Controller;
 class UserDeveloperController
 {
 
-  public function getHello()
+  private $user;
+  private static $arr_users;
+
+  // constructor receives container instance
+  public function __construct()
   {
-    return 'Hello world';
+    $this->user = new \Model\UserDeveloper;
+
+    self::$arr_users = [];
   }
 
-  // public function postUser(Request $request, Response $response) {
+  /**
+   * Retorno o usuario indentificado pelo id
+   *
+   * @param string $id
+   * @return void
+   */
+  public function getUser(string $id)
+  {
 
-  // }
+    return \Persistence\UserDeveloperDAO::getUserById($id);
+  }
+
+  public function setUser()
+  {
+    $values = input()->all([
+      "name",
+      "email",
+      "password",
+      "tag",
+      "following",
+      "active",
+      "thumbnail",
+      "ocupation",
+      "birthDate",
+      "description",
+      "locale"
+    ]);
+
+    return \Persistence\UserDeveloperDAO::insertUser($values);
+  }
 }

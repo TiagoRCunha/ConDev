@@ -12,7 +12,7 @@
             </p>
             <hr>
             <br>
-            <br>espaso para api google
+            <br>espaço para api google
             <br>
             <br>
             <button type="button " class="btn btn-secondary btn-block mt-2" id="cancelarLogin">CANCELAR</button>
