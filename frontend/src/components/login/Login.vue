@@ -2,18 +2,17 @@
   <div class="login">
     <NavBar />
     <div class="text-center">
-   
       <form @submit.prevent="submit" class="contIm bg-dark" novalidate="true">
-          <div class="form-group" :class="{ 'form-group--error': $v.email.$error }">
+        <div class="form-group" :class="{ 'form-group--error': $v.email.$error }">
           <label style="text-align:left">Email</label>
-          <input type="email" class="form-control bgColor btn-outline-secondary" placeholder="Email" v-model="email" :class="status($v.email)" v-model.trim="$v.email.$model"/> 
+          <input type="email" class="form-control bgColor btn-outline-secondary" placeholder="Email" v-model="email" :class="status($v.email)" v-model.trim="$v.email.$model" />
         </div>
-         <div style="color:red" v-if="!$v.email.minLength">* Email é obrigatório.</div>
+        <div style="color:red" v-if="!$v.email.minLength">* Email é obrigatório.</div>
         <hr />
-          <div class="form-group" :class="{ 'form-group--error': $v.password.$error }">
+        <div class="form-group" :class="{ 'form-group--error': $v.password.$error }">
           <label style="text-align:left">Senha</label>
-          <div >
-          <input type="password" class="form-control bgColor btn-outline-secondary" placeholder="password" v-model="password" :class="status($v.password)" v-model.trim="$v.password.$model"/> 
+          <div>
+            <input type="password" class="form-control bgColor btn-outline-secondary" placeholder="password" v-model="password" :class="status($v.password)" v-model.trim="$v.password.$model" />
           </div>
         </div>
         <hr />
@@ -21,13 +20,12 @@
         <br />espaço para api google
         <br />
         <br />
+        <router-link to="/home">
         <button type="button " class="btn btn-secondary btn-block mt-2" id="cancelarLogin">CANCELAR</button>
-        <button  type="button " class="btn btn-info btn-block mt-2" >LOGIN</button>
-        
-        <p style="color:red" class="typo__p" v-if="submitStatus === 'ERROR'" >Por favor preencha os campos obrigatórios</p>
-    
-        <p class="typo__p"  v-if="submitStatus === 'OK'"></p>
-
+        </router-link>
+        <button type="button " class="btn btn-info btn-block mt-2">LOGIN</button>
+        <p style="color:red" class="typo__p" v-if="submitStatus === 'ERROR'">Por favor preencha todos os campos corretamente</p>
+        <p class="typo__p" v-if="submitStatus === 'OK'"></p>
         <router-link to="/LoginRs">
           <button type="button " class="btn btn-outline-success btn-block mt-2">Esqueci a Senha</button>
         </router-link>
@@ -39,7 +37,8 @@
 
 <script>
 import NavBar from "@/components/NavBar";
-import { required, minLength } from 'vuelidate/lib/validators'
+import router from '../../router';
+import { required, email , minLength } from 'vuelidate/lib/validators'
 
 export default {
   data() {
@@ -53,6 +52,7 @@ export default {
   validations: {
     email: {
       required,
+      email,
       minLength: minLength(1)
     },
     password: {
@@ -66,8 +66,8 @@ export default {
     NavBar
   },
   methods: {
-   
-     submit() {
+
+    submit() {
       this.$v.$touch()
       if (this.$v.email.minLength) {
         this.submitStatus = 'OK'
@@ -77,25 +77,25 @@ export default {
       }
       else {
         this.submitStatus = 'OK'
-          this.axios
-        .post(" http://localhost:3000/login", {
-          email: this.email,
-          password: this.password
-        })
-        .then(function() {
-          //...
-          alert("Login efetuado com sucesso !");
-          this.$router.replace("feed");
-        })
-        .catch(e => {
-          console.error(e);
-          alert("Não pode efetuar login");
-        });
+        this.axios
+          .post(" http://localhost:3000/login", {
+            email: this.email,
+            password: this.password
+          })
+          .then(function() {
+            //...
+            alert("Login efetuado com sucesso !");
+            router.replace("Feed");
+          })
+          .catch(e => {
+            console.error(e);
+            alert("Não pode efetuar login");
+          });
       }
     },
     status(validation) {
-    	return {
-      	error: validation.$error,
+      return {
+        error: validation.$error,
         dirty: validation.$dirty
       }
     }
@@ -142,5 +142,4 @@ input {
 .error:focus {
   outline-color: #F99;
 }
-
 </style>
