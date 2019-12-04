@@ -30,11 +30,13 @@ class ChatController
   {
 
     return \Persistence\ChatDAO::getChat($user_id, $chat_id);
-    //$response->getBody()->write(json_encode(self::$arr_chat));
+  }
 
-    // return $response->withHeader('Content-Type', 'application/json');
 
-    // return 'recebido o id ' . $id;
+  public function getAllChat(string $user_id)
+  {
+
+    return \Persistence\ChatDAO::getAllChat($user_id);
   }
 
   public function setChat()

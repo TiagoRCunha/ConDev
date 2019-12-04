@@ -35,7 +35,26 @@ class ChatDao
     $bulk->insert($chat);
     $cursor = Connection::getConnection();
 
-    return $result = $cursor->executeBulkWrite(DB_NAME . '.Chat', $bulk);
+    $result = $cursor->executeBulkWrite(DB_NAME . '.Chat', $bulk);
+
+    return json_encode($result);
+  }
+
+  static function getAllChat(string $user_id)
+  {
+
+    $new_user_id = new \MongoDB\BSON\ObjectId($user_id);
+    $query = new \MongoDB\Driver\Query(['users._id' => $new_user_id]);
+    $cursor = Connection::getConnection()->executeQuery(DB_NAME . '.Chat', $query);
+
+    $arr_chat = [];
+
+    foreach ($cursor as $document) {
+
+      $arr_chat[] = $document;
+    };
+
+    return json_encode($arr_chat);
   }
 
   function delete(Object $data): bool

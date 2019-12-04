@@ -9,6 +9,7 @@ use Pecee\SimpleRouter\SimpleRouter as Router;
 require 'simple_router_helper.php';
 Router::setDefaultNamespace('\Controller');
 
+
 Router::get('/userDeveloper/{password}', function ($password) {
   $client = new MongoDB\Client(DSN);
 
@@ -32,6 +33,8 @@ Router::post('/userDeveloper/', function () {
   $client->CONDEV->UserDeveloper->insertOne();
 })->name('teste');
 
+Router::get('/', 'ApiExampleController@getExample')->name("getExample");
+
 Router::get('/user/d/{id}', 'UserDeveloperController@getUser')->name('getUser');
 
 Router::post('/user/d/', 'UserDeveloperController@setUser')->name('setUser');
@@ -39,6 +42,8 @@ Router::post('/user/d/', 'UserDeveloperController@setUser')->name('setUser');
 Router::get('/user/s/{id}', 'UserStartupController@getUser')->name('getUser');
 
 Router::post('/user/s/', 'UserStartupController@setUser')->name('setUser');
+
+Router::get('/user/{user_id}/c/', 'ChatController@getAllChat')->name('getAllChat');
 
 Router::get('/user/{user_id}/c/{chat_id}', 'ChatController@getChat')->name('getChat');
 
