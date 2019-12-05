@@ -28,10 +28,8 @@ class MessageDao
     return json_encode($arr_chat);
   }
 
-  function insertMessage($values)
-  {
-    return false;
-  }
+  function postMessage()
+  { }
   function findById(int $id)
   { }
 
