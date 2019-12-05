@@ -2,6 +2,8 @@
 
 namespace Controller;
 
+use Pecee\Http\Request;
+
 class UserDeveloperController
 {
 
@@ -45,5 +47,15 @@ class UserDeveloperController
     ]);
 
     return \Persistence\UserDeveloperDAO::insertUser($values);
+  }
+
+  public function putUser(Request $request)
+  {
+    var_dump($request);
+    die();
+
+    $request = input()->all();
+
+    return \Persistence\UserDeveloperDAO::insertUser($request);
   }
 }
