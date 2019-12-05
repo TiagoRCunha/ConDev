@@ -26,8 +26,8 @@ export default new Router({
             component: NavBar
         },
         {
-            path: "/NavbarFeed",
-            name: "NavbarFeed",
+            path: "/Feed",
+            name: "Feed",
             component: NavbarFeed
         },
         {

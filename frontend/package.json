@@ -13,6 +13,8 @@
     "bootstrap": "^4.3.1",
     "core-js": "^3.3.2",
     "font-awesome": "^4.7.0",
+    "primeicons": "^2.0.0",
+    "primevue": "^1.0.0-beta.14",
     "vee-validate": "^2.1.7",
     "vue": "^2.6.10",
     "vue-axios": "^2.1.5",

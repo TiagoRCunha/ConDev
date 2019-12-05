@@ -1,18 +1,32 @@
 <template>
   <div class="login">
     <NavBar />
-    <div class="text-center">
+    <div>
       <form @submit.prevent="submit" class="contIm bg-dark" novalidate="true">
         <div class="form-group" :class="{ 'form-group--error': $v.email.$error }">
-          <label style="text-align:left">Email</label>
-          <input type="email" class="form-control bgColor btn-outline-secondary" placeholder="Email" v-model="email" :class="status($v.email)" v-model.trim="$v.email.$model" />
+          <label>Email</label>
+          <input
+            type="email"
+            class="form-control bgColor btn-outline-secondary"
+            placeholder="Email"
+            v-model="email"
+            :class="status($v.email)"
+            v-model.trim="$v.email.$model"
+          />
         </div>
         <div style="color:red" v-if="!$v.email.minLength">* Email é obrigatório.</div>
         <hr />
         <div class="form-group" :class="{ 'form-group--error': $v.password.$error }">
-          <label style="text-align:left">Senha</label>
+          <label>Senha</label>
           <div>
-            <input type="password" class="form-control bgColor btn-outline-secondary" placeholder="password" v-model="password" :class="status($v.password)" v-model.trim="$v.password.$model" />
+            <input
+              type="password"
+              class="form-control bgColor btn-outline-secondary"
+              placeholder="password"
+              v-model="password"
+              :class="status($v.password)"
+              v-model.trim="$v.password.$model"
+            />
           </div>
         </div>
         <hr />
@@ -21,10 +35,18 @@
         <br />
         <br />
         <router-link to="/home">
-        <button type="button " class="btn btn-secondary btn-block mt-2" id="cancelarLogin">CANCELAR</button>
+          <button
+            type="button "
+            class="btn btn-secondary btn-block mt-2"
+            id="cancelarLogin"
+          >CANCELAR</button>
         </router-link>
         <button type="button " class="btn btn-info btn-block mt-2">LOGIN</button>
-        <p style="color:red" class="typo__p" v-if="submitStatus === 'ERROR'">Por favor preencha todos os campos corretamente</p>
+        <p
+          style="color:red"
+          class="typo__p"
+          v-if="submitStatus === 'ERROR'"
+        >Por favor preencha todos os campos corretamente</p>
         <p class="typo__p" v-if="submitStatus === 'OK'"></p>
         <router-link to="/LoginRs">
           <button type="button " class="btn btn-outline-success btn-block mt-2">Esqueci a Senha</button>
@@ -37,8 +59,8 @@
 
 <script>
 import NavBar from "@/components/NavBar";
-import router from '../../router';
-import { required, email , minLength } from 'vuelidate/lib/validators'
+import router from "../../router";
+import { required, email, minLength } from "vuelidate/lib/validators";
 
 export default {
   data() {
@@ -59,24 +81,21 @@ export default {
       required,
       minLength: minLength(1)
     }
-
   },
 
   components: {
     NavBar
   },
   methods: {
-
     submit() {
-      this.$v.$touch()
+      this.$v.$touch();
       if (this.$v.email.minLength) {
-        this.submitStatus = 'OK'
+        this.submitStatus = "OK";
       }
       if (this.$v.$invalid) {
-        this.submitStatus = 'ERROR'
-      }
-      else {
-        this.submitStatus = 'OK'
+        this.submitStatus = "ERROR";
+      } else {
+        this.submitStatus = "OK";
         this.axios
           .post(" http://localhost:3000/login", {
             email: this.email,
@@ -97,7 +116,7 @@ export default {
       return {
         error: validation.$error,
         dirty: validation.$dirty
-      }
+      };
     }
   }
 };
@@ -124,22 +143,21 @@ input {
   padding: 5px 10px;
 }
 
-
 .dirty {
-  border-color: #5A5;
-  background: #EFE;
+  border-color: #5a5;
+  background: #efe;
 }
 
 .dirty:focus {
-  outline-color: #8E8;
+  outline-color: #8e8;
 }
 
 .error {
   border-color: red;
-  background: #FDD;
+  background: #fdd;
 }
 
 .error:focus {
-  outline-color: #F99;
+  outline-color: #f99;
 }
 </style>

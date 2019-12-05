@@ -1,28 +1,14 @@
 <template>
   <div id="app">
-    
     <router-view />
-  
-
-  
-      <!-- <NavBar/> -->
-
-
-
   </div>
-
-  
-  
 </template>
 <script>
 import "bootstrap/dist/css/bootstrap.css";
-// import NavBar from './components/NavBar.vue'
-
 
 export default {
-  name: "app",
+  name: "app"
 };
-
 </script>
 
 <style lang="scss">

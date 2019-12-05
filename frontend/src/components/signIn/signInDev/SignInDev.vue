@@ -21,9 +21,8 @@
         </div>
         <hr />
         <div class="form-group" :class="{ 'form-group--error': $v.repeatPassword.$error }">
-          <label style="text-align:left">Digite a Senha novamente</label>
           <div>
-            <input type="password" class="form-control bgColor btn-outline-secondary" placeholder="password" v-model="repeatPassword" :class="status($v.repeatPassword)" v-model.trim="$v.repeatPassword.$model" />
+            <input type="password" class="form-control bgColor btn-outline-secondary" placeholder="Digite a Senha novamente" v-model="repeatPassword" :class="status($v.repeatPassword)" v-model.trim="$v.repeatPassword.$model" />
           </div>
           <p style="color:red" class="typo__p" v-if="!$v.repeatPassword.sameAsPassword">As senhas devem ser iguais</p>
           <p style="color:red" class="typo__p" v-if="!$v.password.minLength">A senha deve ter no minimo 6 digitos</p>
