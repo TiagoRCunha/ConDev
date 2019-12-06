@@ -1,0 +1,149 @@
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">ConDev</a>
+    <form class="form-inline ml-auto">
+        <div>
+            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#modaltipo">Cadastrar</button>
+        </div>
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalLogin">Entrar</button>
+    </form>
+</nav>
+<!-- Modal login bootstrap -->
+<div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+        <div class="modal-content bg-dark">
+            <div class="modal-body">
+                <form>
+                    <h1 class="text-center titulo">Login</h1>
+                    <span class="ui-float-label input" style="margin-top: 10px;">
+                        <input id="float-input" type="text" class="form-control bgColor btn-outline-secondary ">
+                        <label for="float-input">E-mail:</label>
+                    </span>
+                    <span class="ui-float-label input" style="margin-top: 20px;">
+                        <input id="float-input" type="password" class="form-control bgColor btn-outline-secondary ">
+                        <label for="float-input">Senha:</label>
+                    </span>
+                    <hr>
+                    <button type="button " data-dismiss="modal" class="btn btn-secondary btn-block mt-2">CANCELAR</button>
+                    <button type="button " class="btn btn-info btn-block mt-2">LOGIN</button>
+                    <button type="button " data-dismiss="modal" class="btn btn-outline-success btn-block mt-2" data-toggle="modal" data-target="#modalEsqueciSenha">Esqueci a Senha</button>
+                    <button type="button " data-dismiss="modal" class="btn btn-outline-secondary btn-block mt-2" data-toggle="modal" data-target="#modaltipo">Criar nova conta</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalEsqueciSenha" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+        <div class="modal-content bg-dark">
+            <div class="modal-body">
+                <form>
+                    <h3 class="text-center titulo">Esqueci a Senha</h3>
+                    <span class="ui-float-label input" style="margin-top: 10px;">
+                        <input id="float-input" type="text" class="form-control bgColor btn-outline-secondary ">
+                        <label for="float-input">E-mail:</label>
+                    </span>
+                    <hr>
+                    <button type="button " data-dismiss="modal" class="btn btn-secondary btn-block mt-2">CANCELAR</button>
+                    <button type="button " data-dismiss="modal" class="btn btn-info btn-block mt-2">ENVIAR</button>
+                    <button type="button " data-dismiss="modal" class="btn btn-outline-secondary btn-block mt-2" data-toggle="modal" data-target="#modaltipo">Criar nova conta</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modaltipo" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog  modal-sm modal-dialog-centered" role="document">
+        <div class="modal-content bg-dark">
+            <div class="modal-body">
+                <form>
+                    <router-link to="/signInDev">
+                        <button type="button " data-dismiss="modal" class="btn btn-outline-primary btn-block mt-2 " data-toggle="modal" data-target="#modalDesenvolvedor">Desenvolvedor</button>
+                    </router-link>
+                    <router-link to="/signInEmpresa">
+                        <button type="button " data-dismiss="modal" class="btn btn-outline-success btn-block mt-2" data-toggle="modal" data-target="#modalEmpresa">Empresa</button>
+                    </router-link>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalDesenvolvedor" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+        <div class="modal-content bg-dark">
+            <div class="modal-body">
+                <form>
+                    <h1 class="text-center titulo">Cadastrar-se</h1>
+                    <span class="ui-float-label input" style="margin-top: 10px;">
+                        <input id="float-input" type="text" class="form-control bgColor btn-outline-secondary ">
+                        <label for="float-input">Nome:</label>
+                    </span>
+                    <span class="ui-float-label input" style="margin-top: 20px;">
+                        <input id="float-input" type="text" class="form-control bgColor btn-outline-secondary ">
+                        <label for="float-input">E-mail:</label>
+                    </span>
+                    <span class="ui-float-label input" style="margin-top: 20px;">
+                        <input id="float-input" type="password" class="form-control bgColor btn-outline-secondary ">
+                        <label for="float-input">Senha:</label>
+                    </span>
+                    <span class="ui-float-label input" style="margin-top: 20px;">
+                        <input id="float-input" type="password" class="form-control bgColor btn-outline-secondary ">
+                        <label for="float-input">Confirmar Senha:</label>
+                    </span>
+                    <div style="margin-top: 8px;">
+                        <p-checkbox name="concordo" label="Concordo com os termos" value="val1" [(ngModel)]="selectedValues"></p-checkbox>
+                    </div>
+                    <button type="button " data-dismiss="modal" class="btn btn-secondary btn-block mt-2">CANCELAR</button>
+                    <button type="button " class="btn btn-info btn-block mt-2">CADASTRAR-SE</button>
+                    <button type="button " data-dismiss="modal" class="btn btn-outline-success btn-block mt-2" data-toggle="modal" data-target="#modaltipo">Trocar tipo do Cadastro</button>
+                    <button type="button " data-dismiss="modal" class="btn btn-outline-secondary btn-block mt-2" data-toggle="modal" data-target="#modalLogin">Ja posuo uma conta</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalEmpresa" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered " role="document">
+        <div class="modal-content  bg-dark">
+            <div class="modal-body">
+                <form>
+                    <h1 class="text-center titulo">Cadastrar-se</h1>
+                    <span class="ui-float-label input" style="margin-top: 10px;">
+                        <input id="float-input" type="text" class="form-control bgColor btn-outline-secondary ">
+                        <label for="float-input">Nome comercial:</label>
+                    </span>
+                    <span class="ui-float-label input" style="margin-top: 20px;">
+                        <input id="float-input" type="text" class="form-control bgColor btn-outline-secondary ">
+                        <label for="float-input">E-mail:</label>
+                    </span>
+                    <span class="ui-float-label input" style="margin-top: 20px;">
+                        <input id="float-input" type="text" class="form-control bgColor btn-outline-secondary ">
+                        <label for="float-input">Cnpj</label>
+                    </span>
+                    <!-- alterar para funç]ao do prime -->
+                    <div class="form-group" style="margin-top: 20px;">
+                        <select class="form-control input bgColor btn-outline-secondary">
+                            <option class="input">1 - 50 funcionários</option>
+                            <option class="input">51 - 100 funcionários</option>
+                            <option class="input">101 - 500 funcionários</option>
+                            <option class="input">500 + funcionários</option>
+                        </select>
+                    </div>
+                    <!-- ------------------------------- -->
+                    <span class="ui-float-label input" style="margin-top: 20px;">
+                        <input id="float-input" type="password" class="form-control bgColor btn-outline-secondary ">
+                        <label for="float-input">Senha:</label>
+                    </span>
+                    <span class="ui-float-label input" style="margin-top: 20px;">
+                        <input id="float-input" type="password" class="form-control bgColor btn-outline-secondary ">
+                        <label for="float-input">Confirmar Senha:</label>
+                    </span>
+                    <button type="button " data-dismiss="modal" class="btn btn-secondary btn-block mt-2">CANCELAR</button>
+                    <button type="button " class="btn btn-info btn-block mt-2">CADASTRAR-SE</button>
+                    <button type="button " data-dismiss="modal" class="btn btn-outline-success btn-block mt-2" data-toggle="modal" data-target="#modaltipo">Trocar tipo do Cadastro</button>
+                    <button type="button " data-dismiss="modal" class="btn btn-outline-secondary btn-block mt-2" data-toggle="modal" data-target="#modalLogin">Ja posuo uma conta</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
