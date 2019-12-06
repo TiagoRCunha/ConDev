@@ -4,9 +4,7 @@
  * Rotas
  */
 
-use Pecee\SimpleRouter\SimpleRouter as Router;
 
-require 'simple_router_helper.php';
 Router::setDefaultNamespace('\Controller');
 
 Router::get('/', 'ApiExampleController@getExample')->name("getExample");

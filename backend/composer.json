@@ -20,12 +20,14 @@
   ],
   "autoload": {
     "psr-4": {
+      "App\\": "./Api/app/",
       "Model\\": "./src/Model",
       "Controller\\": "./src/Controller",
-      "Persistence\\": "./src/Persistence"
+      "Persistence\\": "./src/Persistence",
+      "Api\\": "./src/Api"
     }
   },
   "scripts": {
-    "start": "php -S 0.0.0.0:4000 -t ./public/"
+    "start": "php Api/artisan serve --host=0.0.0.0 --port=5000"
   }
 }
