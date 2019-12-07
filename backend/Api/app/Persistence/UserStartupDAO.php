@@ -1,8 +1,8 @@
 <?php
 
 /**
- * 
- * Class:  UserStartupDAO 
+ *
+ * Class:  UserStartupDAO
  */
 
 namespace App\Persistence;
@@ -15,7 +15,13 @@ class UserStartupDAO
     $new_id = new \MongoDB\BSON\ObjectId($id);
     $query = new \MongoDB\Driver\Query(['_id' => $new_id]);
     // herdando um instancia do mongo
-    $cursor = Connection::getConnection()->executeQuery(DB_NAME . '.UserStartup', $query);
+    $cursor = Connection::getConnection()
+      ->executeQuery(
+        Connection::getConf()
+          ->database
+          ->name . '.UserStartup',
+        $query
+      );
 
     $arr_users = [];
 
@@ -33,7 +39,13 @@ class UserStartupDAO
     $bulk->insert($user);
     $cursor = Connection::getConnection();
 
-    $result = $cursor->executeBulkWrite(DB_NAME . '.UserStartup', $bulk);
+    $result = $cursor
+      ->executeBulkWrite(
+        Connection::getConf()
+          ->database
+          ->name . '.UserStartup',
+        $bulk
+      );
 
     return json_encode($result);
   }

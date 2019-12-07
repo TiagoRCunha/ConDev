@@ -4,9 +4,11 @@
  *  Classe: UsersController
  */
 
-namespace Controller;
+namespace App\Http\Controllers;
 
-class UsersController
+use Illuminate\Http\Request;
+
+class UsersController extends Controller
 {
 
   private $user;

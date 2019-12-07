@@ -17,7 +17,13 @@ class ChatDao
     $new_user_id = new \MongoDB\BSON\ObjectId($user_id);
     $new_chat_id = new \MongoDB\BSON\ObjectId($chat_id);
     $query = new \MongoDB\Driver\Query(['_id' => $new_chat_id, 'users._id' => $new_user_id]);
-    $cursor = Connection::getConnection()->executeQuery(DB_NAME . '.Chat', $query);
+    $cursor = Connection::getConnection()
+      ->executeQuery(
+        Connection::getConf()
+          ->database
+          ->name . '.Chat',
+        $query
+      );
 
     $arr_chat = [];
 
@@ -35,7 +41,13 @@ class ChatDao
     $bulk->insert($chat);
     $cursor = Connection::getConnection();
 
-    $result = $cursor->executeBulkWrite(DB_NAME . '.Chat', $bulk);
+    $result = $cursor
+      ->executeBulkWrite(
+        Connection::getConf()
+          ->database
+          ->name . '.Chat',
+        $bulk
+      );
 
     return json_encode($result);
   }
@@ -45,7 +57,13 @@ class ChatDao
 
     $new_user_id = new \MongoDB\BSON\ObjectId($user_id);
     $query = new \MongoDB\Driver\Query(['users._id' => $new_user_id]);
-    $cursor = Connection::getConnection()->executeQuery(DB_NAME . '.Chat', $query);
+    $cursor = Connection::getConnection()
+      ->executeQuery(
+        Connection::getConf()
+          ->database
+          ->name . '.Chat',
+        $query
+      );
 
     $arr_chat = [];
 

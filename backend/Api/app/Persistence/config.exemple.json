@@ -5,10 +5,10 @@
     "mode": "dev"
   },
   "dsn": "yourStringConnection",
-  "database": {
+  "db": {
     "type": "mongodb",
     "host": "localhost",
     "port": "27017",
-    "db": "yourDataBase"
+    "name": "yourDataBase"
   }
 }

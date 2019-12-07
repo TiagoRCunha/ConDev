@@ -3,9 +3,6 @@
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-
-
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -21,15 +18,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/get/{id}', function ($id){
+Route::get('/get/{id}', function ($id) {
 
-	 
-	 return response()->json(["_token"=> csrf_token(), "message"=>"O id informado foi $id","status"=>200])->header('Content-Type', 'application/json');
-	
+    return 1;
+    //return response()->json(["_token"=> csrf_token(), "message"=>"O id informado foi $id","status"=>200])->header('Content-Type', 'application/json');
+
 
 });
 
-Route::put('/put/{id}', function(Request $request, $id){
+Route::put('/put/{id}', function (Request $request, $id) {
     $res = sprintf("The server response is: %s ", $id);
     return $res;
 });

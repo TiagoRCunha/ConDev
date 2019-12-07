@@ -3,14 +3,16 @@
 /**
  *  Classe: MessageController
  */
+
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
-class MessageController
+
+class MessageController extends Controller
 {
 
   protected $container;
   private $user;
-  private $chat;
   private static $arr_message;
 
   // constructor receives container instance
@@ -30,7 +32,7 @@ class MessageController
   public function getMessage(string $user_id, string $message_id)
   {
 
-    return \Persistence\MessageDAO::getMessage($user_id, $message_id);
+    return \App\Persistence\MessageDAO::getMessage($user_id, $message_id);
     //$response->getBody()->write(json_encode(self::$arr_message));
 
     // return $response->withHeader('Content-Type', 'application/json');
@@ -38,10 +40,10 @@ class MessageController
     // return 'recebido o id ' . $id;
   }
 
-  public function setMessage()
+  public function setMessage(Request $request)
   {
-    $values = input()->all();
+    $values = $request->all();
 
-    return \Persistence\MessageDAO::insertMessage($values);
+    return \App\Persistence\MessageDAO::insertMessage($values);
   }
 }
