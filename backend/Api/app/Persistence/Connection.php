@@ -9,11 +9,32 @@ namespace App\Persistence;
 class Connection
 {
 
-    public static function getConnection()
-    {
+  protected static $dsn;
 
-        $manager = new \MongoDB\Driver\Manager(DSN);
+  public static function getConnection()
+  {
 
-        return $manager;
-    }
+    if (self::getConf()->app->mode == 'dev') :
+      ini_set('display_errors', '1');
+      error_reporting(E_ALL | E_WARNING);
+    endif;
+
+    $manager = new \MongoDB\Driver\Manager(self::getConf()->dsn);
+
+    return $manager;
+  }
+
+  /**
+   * Obtem o datasource name da conexao
+   * @param none
+   * @return string String de conexao..
+   */
+  public static function  getConf()
+  {
+
+    $file = file_get_contents(__DIR__  . '/config.json');
+    $conf = json_decode($file);
+
+    return $conf;
+  }
 }

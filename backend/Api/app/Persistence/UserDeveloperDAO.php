@@ -15,7 +15,13 @@ class UserDeveloperDAO
     $new_id = new \MongoDB\BSON\ObjectId($id);
     $query = new \MongoDB\Driver\Query(['_id' => $new_id]);
     // herdando um instancia do mongo
-    $cursor = Connection::getConnection()->executeQuery(DB_NAME . '.UserDeveloper', $query);
+    $cursor = Connection::getConnection()
+      ->executeQuery(
+        Connection::getConf()
+          ->database
+          ->name . '.UserDeveloper',
+        $query
+      );
 
     $arr_users = [];
 
@@ -33,7 +39,13 @@ class UserDeveloperDAO
     $bulk->insert($user);
     $cursor = Connection::getConnection();
 
-    $result = $cursor->executeBulkWrite(DB_NAME . '.UserDeveloper', $bulk);
+    $result = $cursor
+      ->executeBulkWrite(
+        Connection::getConf()
+          ->database
+          ->name . '.UserDeveloper',
+        $bulk
+      );
 
     return json_encode($result);
   }

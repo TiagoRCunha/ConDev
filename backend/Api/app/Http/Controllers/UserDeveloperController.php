@@ -4,33 +4,37 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class UserDeveloperController {
+class UserDeveloperController extends Controller
+{
 
     private $user;
     private static $arr_users;
 
     // constructor receives container instance
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->user = new \App\Model\UserDeveloper;
 
         self::$arr_users = [];
     }
 
     /**
-    * Retorno o usuario indentificado pelo id
-    *
-    * @param string $id
-    * @return void
-    */
+     * Retorno o usuario indentificado pelo id
+     *
+     * @param string $id
+     * @return void
+     */
 
-    public function getUser( string $id ) {
+    public function getUser(string $id)
+    {
 
-        return \App\Persistence\UserDeveloperDAO::getUserById( $id );
+        return \App\Persistence\UserDeveloperDAO::getUserById($id);
     }
 
-    public function setUser() {
-        $values = input()->all( [
+    public function setUser(Request $request)
+    {
+        $values = $request->all([
             'name',
             'email',
             'password',
@@ -42,17 +46,16 @@ class UserDeveloperController {
             'birthDate',
             'description',
             'locale'
-        ] );
+        ]);
 
-        return \Persistence\UserDeveloperDAO::insertUser( $values );
+        return \App\Persistence\UserDeveloperDAO::insertUser($values);
     }
 
-    public function putUser( Request $request ) {
-        var_dump( $request );
-        die();
+    public function putUser(Request $request)
+    {
 
-        $request = input()->all();
+        $request = $request->all();
 
-        return \Persistence\UserDeveloperDAO::insertUser( $request );
+        return \App\Persistence\UserDeveloperDAO::insertUser($request);
     }
 }

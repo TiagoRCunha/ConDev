@@ -4,9 +4,11 @@
  *  Classe: ApiExampleController
  */
 
-namespace \App\Controller;
+namespace App\Http\Controllers;
 
-class ApiExampleController
+use Illuminate\Http\Request;
+
+class ApiExampleController extends Controller
 {
 
   public function getExample()
