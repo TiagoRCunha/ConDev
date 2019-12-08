@@ -1,0 +1,57 @@
+<!---------------------------------EDITAR PERFIL-->
+
+<p-sidebar [(visible)]="EditarPerfil" [fullScreen]="true" [baseZIndex]="10000" [style]="{'overflow': 'scroll'}">
+    <app-editar-perfil></app-editar-perfil>
+    <p-button icon="pi pi-check" iconPos="right" label="Salvar alterações" (click)="EditarPerfil = false"></p-button>
+    <button pButton type="button" (click)="EditarPerfil = false" label="Cancelar" class="ui-button-secondary"></button>
+
+</p-sidebar>
+
+<!---------------------------------SOBRE NÓS-->
+
+<p-sidebar [(visible)]="SobreNos" [fullScreen]="true" [baseZIndex]="10000" [style]="{'overflow': 'scroll'}">
+    <app-sobre-nos></app-sobre-nos>
+</p-sidebar>
+
+<!---------------------------------SIDE-BAR-->
+<p-sidebar [(visible)]="DivulgarEvento" [fullScreen]="true" [baseZIndex]="10000" [style]="{'overflow': 'scroll'}">
+    <app-divulgar></app-divulgar>
+    <p-button icon="pi pi-check" iconPos="right" label="Salvar alterações" (click)="DivulgarEvento = false"></p-button>
+    <button pButton type="button" (click)="DivulgarEvento = false" label="Cancelar"
+        class="ui-button-secondary"></button>
+</p-sidebar>
+
+<!---------------------------------SIDE-BAR-->
+
+<p-sidebar [(visible)]="SideBar" position="right" [baseZIndex]="10000">
+    <p-inputSwitch [(ngModel)]="checked" [disabled]="true"></p-inputSwitch>
+    <p style="float: right;position: relative; left: -70px;">Modo escuro</p>
+    <hr>
+    <div class="ui-inputgroup">
+        <span class="ui-inputgroup-addon"><i class="pi pi-user"></i></span>
+        <button (click)="EditarPerfil = true" (click)="SideBar = false" pButton type="button" label="Perfil"></button>
+    </div>
+    <hr>
+    <div class="ui-inputgroup">
+        <span class="ui-inputgroup-addon"><i class="pi pi-users"></i></span>
+        <button pButton type="button" (click)="DivulgarEvento = true" (click)="SideBar = false"
+            label="Eventos"></button>
+    </div>
+    <hr>
+    <div class="ui-inputgroup">
+        <span class="ui-inputgroup-addon"><i class="pi pi-search"></i></span>
+        <button disabled="true" pButton type="button" label="Empresas"></button>
+    </div>
+    <hr>
+    <div class="ui-inputgroup">
+        <span class="ui-inputgroup-addon"><i class="pi pi-heart"></i></span>
+        <button pButton type="button" (click)="SobreNos = true" (click)="SideBar = false" label="Sobre nós"></button>
+    </div>
+    <hr>
+    <div class="ui-inputgroup">
+        <span class="ui-inputgroup-addon"><i class="pi pi-step-backward"></i></span>
+        <button disabled="true" pButton type="button" (click)="EditarPerfil = true" (click)="SideBar = false"
+            label="Sair : ("></button>
+    </div>
+</p-sidebar>
+<button pButton type="button" style="width: 40px;" (click)="SideBar = true;" icon="pi pi-bars"></button>

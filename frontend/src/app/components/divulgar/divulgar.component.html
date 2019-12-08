@@ -1,12 +1,10 @@
-<p-sidebar [(visible)]="visibleSidebar5" [fullScreen]="true" [baseZIndex]="10000" [style]="{'overflow': 'scroll'}">
     <div class="ui-fluid">
         <div class="ui-g">
             <div class="ui-g-12 ui-md-5">
                 <div class="ui-g-12">
                     <img src="assets/img/eventos/evento.png" style="max-width: 240px;margin-left: 40px;">
                     <div style="max-width: 100px; position: relative; left: 100px;">
-                        <p-fileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*"
-                            maxFileSize="1000000" (onUpload)="onBasicUpload($event)" [auto]="true"></p-fileUpload>
+                        <p-fileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" maxFileSize="1000000" (onUpload)="onBasicUpload($event)" [auto]="true"></p-fileUpload>
                     </div>
                     <h3>Informações sobre o evento</h3>
                     <textarea [rows]="13" [cols]="30" pInputTextarea autoResize="autoResize"></textarea>
@@ -17,18 +15,16 @@
                     <h3 class="first" style="text-align: center;">Adicione os dados do evento</h3>
                     <div class="ui-inputgroup">
                         <span class="ui-inputgroup-addon"><i class="pi pi-user-edit"></i></span>
-                        <input size="40" type="text" pInputText placeholder="Nome do evento"
-                            pTooltip="Digite um novo nome">
+                        <input size="40" type="text" pInputText placeholder="Nome do evento" pTooltip="Digite um novo nome">
                     </div>
                     <br>
                     <div class="ui-inputgroup">
                         <span class="ui-inputgroup-addon"><i class="pi pi-home"></i></span>
-                        <input size="40" type="text" pInputText placeholder="Localização do evento"
-                            pTooltip="Digite uma nova localização">
+                        <input size="40" type="text" pInputText placeholder="Localização do evento" pTooltip="Digite uma nova localização">
                     </div>
+                    <br>
                     <h3>Horário do evento</h3>
                     <div class="ui-g-12 ui-md-4">
-
                         <div class="ui-inputgroup">
                             <span class="ui-inputgroup-addon"><i class="pi pi-calendar"></i></span>
                             <p-calendar [style]="{'width':'250px'}" [(ngModel)]="date7" [showTime]="true"></p-calendar>
@@ -42,9 +38,4 @@
             </div>
         </div>
     </div>
-    <p-button icon="pi pi-check" iconPos="right" label="Salvar alterações" (click)="visibleSidebar5 = false"></p-button>
-    <button pButton type="button" (click)="visibleSidebar5 = false" label="Cancelar"
-        class="ui-button-secondary"></button>
-</p-sidebar>
 
-<button pButton type="button" (click)="visibleSidebar5 = true" label="Criar evento" icon="pi pi-th-large"></button>

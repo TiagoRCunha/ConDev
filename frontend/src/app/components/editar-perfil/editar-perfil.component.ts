@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {ConfirmationService} from 'primeng/api';
 import { MessageService } from 'primeng/api';
 
 
@@ -14,7 +13,6 @@ export class EditarPerfilComponent implements OnInit {
   uploadedFiles: any[] = [];
 
   constructor(private messageService: MessageService,
-    private confirmationService: ConfirmationService
 
 
   ) { }
