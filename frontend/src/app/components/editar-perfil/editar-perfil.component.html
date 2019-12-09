@@ -1,13 +1,16 @@
+<div class="contS-L bg-dark">
     <div class="ui-fluid">
         <div class="ui-g">
             <div class="ui-g-12 ui-md-5">
                 <div class="ui-g-12">
-                    <img src="assets/img/user/user.svg" style="max-width: 140px;margin-left: 80px;">
-                    <div style="max-width: 100px; position: relative; left: 100px;">
+                    <img src="assets/img/user/user.svg" class="posicao">
+                    <div class="posicao2">
                         <p-fileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" maxFileSize="1000000" (onUpload)="onBasicUpload($event)" [auto]="true"></p-fileUpload>
                     </div>
-                    <h3>Suas Tags</h3>
-                    <textarea [rows]="5" [cols]="30" pInputTextarea autoResize="autoResize"></textarea>
+                    <div class="tagCon">
+                        <h3>Suas Tags</h3>
+                        <textarea [rows]="5" [cols]="30" pInputTextarea autoResize="autoResize"></textarea>
+                    </div>
                 </div>
             </div>
             <div class="ui-g-12 ui-md-7">
@@ -34,26 +37,7 @@
             </div>
         </div>
     </div>
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</div>
 <!-- <h3 class="first" style="text-align: center;">Edição de perfil</h3>
         <div class="ui-g">
             

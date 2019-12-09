@@ -7,6 +7,8 @@ import { LoginAlterarComponent } from './login-alterar/login-alterar.component';
 import { SignTipoComponent } from './sign-tipo/sign-tipo.component';
 import { SignDevComponent } from './sign-dev/sign-dev.component';
 import { SignEmpComponent } from './sign-emp/sign-emp.component';
+import { FeedComponent } from './feed/feed.component';
+import { FperfilComponent } from './fperfil/fperfil.component';
 
 
 const AppRouter: Routes = [
@@ -17,6 +19,10 @@ const AppRouter: Routes = [
   { path: 'signtipo', component: SignTipoComponent },
   { path: 'signtipo/signdev', component: SignDevComponent },
   { path: 'signtipo/signemp', component: SignEmpComponent },
+
+  { path: 'feed', component: FeedComponent },
+  { path: 'perfil', component: FperfilComponent },
+
 
 
 ];

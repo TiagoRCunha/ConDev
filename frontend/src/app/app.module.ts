@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 
 import { CalendarModule } from 'primeng/calendar';
 import { PickListModule } from 'primeng/picklist';
-import { NavbarComponent } from './navbar/navbar.component';
+
 import { MenubarModule } from 'primeng/menubar';
 import { CheckboxModule } from 'primeng/checkbox';
 import { DropdownModule } from 'primeng/dropdown';
@@ -16,7 +16,6 @@ import { CarouselModule } from 'primeng/carousel';
 import { ChartModule } from 'primeng/chart';
 import { DialogModule } from 'primeng/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { HomeComponent } from './components/home/home.component'
 import { SidebarModule } from 'primeng/sidebar';
 import { MessageService } from 'primeng/api';
 import { MessagesModule } from 'primeng/messages';
@@ -39,6 +38,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { SideBarConfigComponent } from './components/side-bar-config/side-bar-config.component';
 import { SobreNosComponent } from './components/sobre-nos/sobre-nos.component';
+import { MenuModule, MenuItemContent } from 'primeng/menu';
+import { ToolbarModule } from 'primeng/toolbar';
+import { AutoCompleteModule } from 'primeng/autocomplete';
 
 //Novos
 import { FormsModule } from '@angular/forms';
@@ -51,6 +53,11 @@ import { LoginAlterarComponent } from './login-alterar/login-alterar.component';
 import { SignTipoComponent } from './sign-tipo/sign-tipo.component';
 import { SignDevComponent } from './sign-dev/sign-dev.component';
 import { SignEmpComponent } from './sign-emp/sign-emp.component';
+import { routing } from './app.routing.module';
+import { FeedComponent } from './feed/feed.component';
+import { NavfeedComponent } from './navfeed/navfeed.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FperfilComponent } from './fperfil/fperfil.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +67,8 @@ import { SignEmpComponent } from './sign-emp/sign-emp.component';
     EditarPerfilComponent,
     SideBarConfigComponent,
     SobreNosComponent,
+
+    NavbarComponent,
     HomePageComponent,
     LoginComponent,
     LoginEsqueciComponent,
@@ -67,6 +76,11 @@ import { SignEmpComponent } from './sign-emp/sign-emp.component';
     SignTipoComponent,
     SignDevComponent,
     SignEmpComponent,
+
+    FeedComponent,
+    NavfeedComponent,
+    FperfilComponent,
+
 
   ],
   imports: [
@@ -100,7 +114,10 @@ import { SignEmpComponent } from './sign-emp/sign-emp.component';
     ConfirmDialogModule,
     InputSwitchModule,
     FormsModule,
-    // routing,
+    MenuModule,
+    ToolbarModule,
+    AutoCompleteModule,
+    routing,
 
 
 

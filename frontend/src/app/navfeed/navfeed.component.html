@@ -1,0 +1,25 @@
+<p-toolbar styleClass="bg-dark" [style]="{'border':'0px'}">
+    <div class="ui-toolbar-group-left">
+        <a class="navbar-brand" style="color: azure;" routerLink="/feed">ConDev</a>
+    </div>
+    <div class="ui-toolbar-group-right">
+        <div class="ui-inputgroup">
+            <div style="margin-top: 2px;">
+                <p-autoComplete [(ngModel)]="text" [suggestions]="results" (completeMethod)="search($event)"></p-autoComplete>
+                <button pButton type="button" icon="pi pi-search" style="margin-bottom: 3px;" class="ui-button-searc"></button>
+            </div>
+            <div>
+                <button type="button" style="margin-top: 2px; margin-left: 20px;" pButton icon=" pi pi-comments" class="ui-button-icon ui-button-warning"></button>
+            </div>
+            <div>
+                <button type="button" (click)="display = true" style="margin-top: 2px; margin-left: 20px;" pButton icon=" pi pi-bars" class="ui-button-icon ui-button-success"></button>
+            </div>
+        </div>
+    </div>
+    <p-sidebar [(visible)]="display" position="right" styleClass="bg-dark" [style]="{'border':'0px'}">
+        <button type="button" (click)="display = falce" pButton icon="pi pi-bars" class="ui-button-icon ui-button-success"></button>
+        <hr>
+        <p-menu [model]="items" [style]="{'width':'250px'}"></p-menu>
+        <hr>
+    </p-sidebar>
+</p-toolbar>
