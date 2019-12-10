@@ -24,6 +24,6 @@
     }
   },
   "scripts": {
-    "start": "php Api/artisan serve --port=5000"
+    "start": "php Api/artisan serve --host=0.0.0.0 --port=5000"
   }
 }

@@ -41,6 +41,37 @@ class UserDeveloper extends User
   private $following;
   private $birthDate;
 
+  public function __construct(
+    $name = "",
+    $cep = "",
+    $phone = "",
+    $email = "",
+    $password = "",
+    $description = "",
+    $tags = [""],
+    $active = true,
+    $locale = "",
+    $thumbnail = "",
+    $ocupation = "",
+    $following = [""],
+    $birthDate = ""
+  )
+  {
+    $this->name = $name;
+    $this->cep = $cep;
+    $this->phone = $phone;
+    $this->email = $email;
+    $this->password = $password;
+    $this->description = $description;
+    $this->tags = $tags;
+    $this->active = $active;
+    $this->locale = $locale;
+    $this->thumbnail = $thumbnail;
+    $this->ocupation =$ocupation;
+    $this->following = $following;
+    $this->birthDate = $birthDate;
+
+  }
   /**
    * Get the value of ocupation
    * @return ocupation
@@ -58,6 +89,8 @@ class UserDeveloper extends User
   public function setOcupation(string $ocupation)
   {
     $this->ocupation = $ocupation;
+
+    return $this;
   }
 
   /**
@@ -77,6 +110,8 @@ class UserDeveloper extends User
   public function setFollowing(array $following)
   {
     $this->following = $following;
+
+    return $this;
   }
 
   /**
@@ -96,5 +131,7 @@ class UserDeveloper extends User
   public function setBirthDate(string $birthDate)
   {
     $this->birthDate = $birthDate;
+
+    return $this;
   }
 }

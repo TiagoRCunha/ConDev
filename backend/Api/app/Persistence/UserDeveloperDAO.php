@@ -16,21 +16,21 @@ class UserDeveloperDAO
     $query = new \MongoDB\Driver\Query(['_id' => $new_id]);
     // herdando um instancia do mongo
     $cursor = Connection::getConnection()
-      ->executeQuery(
-        Connection::getConf()
-          ->database
-          ->name . '.UserDeveloper',
-        $query
-      );
-
+    ->executeQuery(
+      Connection::getConf()
+      ->database
+      ->name . '.UserDeveloper',
+      $query
+    );
+    
     $arr_users = [];
-
+    
     foreach ($cursor as $document) {
-
+      
       $arr_users[] = $document;
     };
-
-    return json_encode($arr_users);
+    
+    return $arr_users;
   }
 
   public static function insertUser($user)
@@ -45,8 +45,9 @@ class UserDeveloperDAO
           ->database
           ->name . '.UserDeveloper',
         $bulk
-      );
+    );
 
-    return json_encode($result);
+
+    return  $result->getInsertedCount() > 0;
   }
 }

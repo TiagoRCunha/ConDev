@@ -28,10 +28,12 @@ class UsersController extends Controller
    * @param string $id
    * @return void
    */
-  public function getUser(string $id)
+  public function getUser(Request $request)
   {
+    echo "corno";
+    // var_dump($request);
 
-    return \Persistence\UserDAO::getUserById($id);
+    return App\Persistence\UserDAO::getUserById($request);
     //$response->getBody()->write(json_encode(self::$arr_users));
 
     // return $response->withHeader('Content-Type', 'application/json');

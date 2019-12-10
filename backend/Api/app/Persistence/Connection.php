@@ -29,7 +29,7 @@ class Connection
    * @param none
    * @return string String de conexao..
    */
-  public static function  getConf()
+  public static function getConf()
   {
 
     $file = file_get_contents(__DIR__  . '/config.json');

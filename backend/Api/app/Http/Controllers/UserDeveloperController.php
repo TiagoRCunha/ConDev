@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class UserDeveloperController extends Controller
 {
@@ -26,29 +27,20 @@ class UserDeveloperController extends Controller
      * @return void
      */
 
-    public function getUser(string $id)
+    public function getUser(Request $request, string $id)
     {
-
         return \App\Persistence\UserDeveloperDAO::getUserById($id);
     }
 
-    public function setUser(Request $request)
+    public function setUser(Request $request, Response $response)
     {
-        $values = $request->all([
-            'name',
-            'email',
-            'password',
-            'tag',
-            'following',
-            'active',
-            'thumbnail',
-            'ocupation',
-            'birthDate',
-            'description',
-            'locale'
-        ]);
 
-        return \App\Persistence\UserDeveloperDAO::insertUser($values);
+        $user = new \App\Model\UserDeveloper($request);
+
+        return  json_encode(
+          [ "success" => \App\Persistence\UserDeveloperDAO::insertUser($user)]
+        );
+
     }
 
     public function putUser(Request $request)
@@ -57,5 +49,6 @@ class UserDeveloperController extends Controller
         $request = $request->all();
 
         return \App\Persistence\UserDeveloperDAO::insertUser($request);
+
     }
 }
