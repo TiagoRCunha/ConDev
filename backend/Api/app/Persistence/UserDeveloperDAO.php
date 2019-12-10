@@ -50,4 +50,40 @@ class UserDeveloperDAO
 
     return  $result->getInsertedCount() > 0;
   }
+
+  public static function updateUser($user)
+  {
+    $bulk = new \MongoDB\Driver\BulkWrite();
+    $bulk->update($user, [ 'upsert' => true]);
+    $cursor = Connection::getConnection();
+
+    $result = $cursor
+      ->executeBulkWrite(
+        Connection::getConf()
+          ->database
+          ->name . '.UserDeveloper',
+        $bulk
+    );
+
+
+    return  $result->getModifiedCount() > 0;
+  }
+
+  public static function deleteUser($user)
+  {
+    $bulk = new \MongoDB\Driver\BulkWrite();
+    $bulk->delete($user);
+    $cursor = Connection::getConnection();
+
+    $result = $cursor
+      ->executeBulkWrite(
+        Connection::getConf()
+          ->database
+          ->name . '.UserDeveloper',
+        $bulk
+    );
+
+
+    return  $result->getDeletedCount() > 0;
+  }
 }

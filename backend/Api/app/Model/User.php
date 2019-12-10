@@ -54,11 +54,13 @@ abstract class User
   /**
    * Set the value of name
    * @param string $name
-   * @return  none
+   * @return self
    */
   public function setName(string $name)
   {
     $this->name = $name;
+
+    return $this;
   }
 
   /**
@@ -73,11 +75,13 @@ abstract class User
   /**
    * Set the value of cep
    * @param string $cep
-   * @return none
+   * @return self
    */
   public function setCep(string $cep)
   {
     $this->cep = $cep;
+
+    return $this;
   }
 
   /**
@@ -92,11 +96,13 @@ abstract class User
   /**
    * Set the value of phone
    * @param string $phone
-   * @return none
+   * @return self
    */
   public function setPhone(string $phone)
   {
     $this->phone = $phone;
+
+    return $this;
   }
 
   /**
@@ -111,11 +117,13 @@ abstract class User
   /**
    * Set the value of email
    * @param string $email
-   * @return none
+   * @return self
    */
   public function setEmail(string $email)
   {
     $this->email = $email;
+
+    return $this;
   }
 
   /**
@@ -130,11 +138,13 @@ abstract class User
   /**
    * Set the value of password
    * @param string $password
-   * @return none
+   * @return self
    */
   public function setPassword(string $password)
   {
     $this->password = $password;
+
+    return $this;
   }
 
   /**
@@ -149,11 +159,13 @@ abstract class User
   /**
    * Set the value of description
    * @param string $description
-   * @return none
+   * @return self
    */
   public function setDescription(string $description)
   {
     $this->description = $description;
+
+    return $this;
   }
   /**
    * Get the value of tags
@@ -167,11 +179,13 @@ abstract class User
   /**
    * Set the value of tags
    * @param array $tags
-   * @return none
+   * @return self
    */
   public function setTags(array $tags)
   {
     $this->tags = $tags;
+
+    return $this;
   }
 
   /**
@@ -186,11 +200,13 @@ abstract class User
   /**
    * Set the value of active
    * @param bool $active
-   * @return none
+   * @return self
    */
   public function setActive(bool $active)
   {
     $this->active = $active;
+
+    return $this;
   }
 
   /**
@@ -205,11 +221,13 @@ abstract class User
   /**
    * Set the value of locale
    * @return string $locale
-   * @return none
+   * @return self
    */
   public function setLocale(string $locale)
   {
     $this->locale = $locale;
+
+    return $this;
   }
 
   /**
@@ -224,10 +242,12 @@ abstract class User
   /**
    * Set the value of thumbnail
    * @param string $thumbnail
-   * @return none
+   * @return self
    */
   public function setThumbnail(string $thumbnail)
   {
     $this->thumbnail = $thumbnail;
+
+    return $this;
   }
 }

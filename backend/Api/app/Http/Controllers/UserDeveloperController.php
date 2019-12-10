@@ -34,21 +34,31 @@ class UserDeveloperController extends Controller
 
     public function setUser(Request $request, Response $response)
     {
-
         $user = new \App\Model\UserDeveloper($request);
 
         return  json_encode(
-          [ "success" => \App\Persistence\UserDeveloperDAO::insertUser($user)]
+          [ "success" => \App\Persistence\UserDeveloperDAO::insertUser($user) ]
         );
 
     }
 
     public function putUser(Request $request)
     {
+        $user = new \App\Model\UserDeveloper($request);
 
-        $request = $request->all();
+        return json_encode(
+          [ "success" => \App\Persistence\UserDeveloperDAO::updateUser($user) ]
+        );
 
-        return \App\Persistence\UserDeveloperDAO::insertUser($request);
+    }
+
+    public function deleteUser(Request $request)
+    {
+        $user = new \App\Model\UserDeveloper($request);
+
+        return json_encode(
+          [ "success" => \App\Persistence\UserDeveloperDAO::deleteUser($user) ]
+        );
 
     }
 }

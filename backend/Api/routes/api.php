@@ -39,6 +39,8 @@ Route::post('/user/d/', 'UserDeveloperController@setUser')->name('setUser');
 
 Route::put('/user/d/{id}', 'UserDeveloperController@putUser')->name('putUser');
 
+Route::delete('/user/d/{id}', 'UserDeveloperController@deleteUser')->name('deleteUser');
+
 Route::get('/user/s/{id}', 'UserStartupController@getUser')->name('getUser');
 
 Route::post('/user/s/', 'UserStartupController@setUser')->name('setUser');
