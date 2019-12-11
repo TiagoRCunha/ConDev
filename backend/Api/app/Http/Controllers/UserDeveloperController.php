@@ -36,18 +36,18 @@ class UserDeveloperController extends Controller
     {
         $user = new \App\Model\UserDeveloper($request);
 
-        return  json_encode(
+        return json_encode(
           [ "success" => \App\Persistence\UserDeveloperDAO::insertUser($user) ]
         );
 
     }
 
-    public function putUser(Request $request)
+    public function putUser($id, Request $request)
     {
         $user = new \App\Model\UserDeveloper($request);
 
         return json_encode(
-          [ "success" => \App\Persistence\UserDeveloperDAO::updateUser($user) ]
+          [ "success" => \App\Persistence\UserDeveloperDAO::updateUser($id, $user) ]
         );
 
     }

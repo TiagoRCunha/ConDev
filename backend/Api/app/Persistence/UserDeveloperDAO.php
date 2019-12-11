@@ -51,10 +51,15 @@ class UserDeveloperDAO
     return  $result->getInsertedCount() > 0;
   }
 
-  public static function updateUser($user)
+  public static function updateUser($id, $user)
   {
+    $object_id = new \MongoDB\BSON\ObjectId($id);
+  
     $bulk = new \MongoDB\Driver\BulkWrite();
-    $bulk->update($user, [ 'upsert' => true]);
+    $bulk->update(
+      ['_id' => $object_id],
+      $user, [ 'upsert' => true]
+    );
     $cursor = Connection::getConnection();
 
     $result = $cursor
