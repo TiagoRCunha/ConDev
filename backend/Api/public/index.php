@@ -11,7 +11,7 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL | E_WARNING);
 
 define('LARAVEL_START', microtime(true));
-
+header("Access-Control-Allow-Origin: *");
 /*
 |--------------------------------------------------------------------------
 | Register The Auto Loader
