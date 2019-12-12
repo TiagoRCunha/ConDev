@@ -24,6 +24,7 @@ export class NavfeedComponent implements OnInit {
       { label: 'Sair', icon: 'pi pi-fw pi-sign-out' }
     ];
 
+  
 
     // search(event) {
     //   this.mylookupservice.getResults(event.query).then(data => {
@@ -32,4 +33,11 @@ export class NavfeedComponent implements OnInit {
     // }
 
   }
+
+  search(){
+
+    this.results = ['victor', 'henrique']
+
+  }
+
 }
