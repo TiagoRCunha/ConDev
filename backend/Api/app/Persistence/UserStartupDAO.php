@@ -30,7 +30,7 @@ class UserStartupDAO
       $arr_users[] = $document;
     };
 
-    return json_encode($arr_users);
+    return $arr_users;
   }
 
   public static function insertUser($user)
@@ -47,6 +47,41 @@ class UserStartupDAO
         $bulk
       );
 
-    return json_encode($result);
+    return $result->getInsertedCount() > 0;
+  }
+
+
+  public static function deleteUser($id)
+  {
+    $object_id = new \MongoDB\BSON\ObjectId($id);
+
+    $bulk = new \MongoDB\Driver\BulkWrite();
+    $bulk->delete(['_id' => $object_id]);
+
+    $result = Connection::getConnection()->executeBulkWrite(
+        Connection::getConf()
+          ->database
+          ->name . '.UserStartup', $bulk);
+
+    return $result->getDeletedCount() > 0;
+  }
+
+  public static function updateUser($id, $user)
+  {
+    $object_id = new \MongoDB\BSON\ObjectId($id);
+    $user_data = $user;
+
+    $bulk = new \MongoDB\Driver\BulkWrite();
+    $bulk->update(
+      ['_id' => $object_id],
+      ['$set' => $user_data]
+    );
+
+    $result = Connection::getConnection()->executeBulkWrite(
+        Connection::getConf()
+          ->database
+          ->name . '.UserStartup', $bulk);
+
+    return $result->getModifiedCount() > 0;
   }
 }

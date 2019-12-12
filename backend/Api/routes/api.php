@@ -45,6 +45,10 @@ Route::get('/user/s/{id}', 'UserStartupController@getUser')->name('getUser');
 
 Route::post('/user/s/', 'UserStartupController@setUser')->name('setUser');
 
+Route::put('/user/s/{id}', 'UserStartupController@updateUser')->name('updateUser');
+
+Route::delete('/user/s/{id}', 'UserStartupController@deleteUser')->name('deleteUser');
+
 Route::get('/user/{user_id}/c/', 'ChatController@getAllChat')->name('getAllChat');
 
 Route::get('/user/{user_id}/c/{chat_id}', 'ChatController@getChat')->name('getChat');
