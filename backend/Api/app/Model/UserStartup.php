@@ -38,6 +38,35 @@ class UserStartup extends User
   private $companySize;
   private $CNPJ;
 
+  public function __construct(
+    $name = "",
+    $cep = "",
+    $phone = "",
+    $email = "",
+    $password = "",
+    $description = "",
+    $tags = [""],
+    $active = true,
+    $locale = "",
+    $thumbnail = "",
+    $companySize = "0",
+    $cnpj = ""
+  )
+  {
+    $this->name = $name;
+    $this->cep = $cep;
+    $this->phone = $phone;
+    $this->email = $email;
+    $this->password = $password;
+    $this->description = $description;
+    $this->tags = $tags;
+    $this->active = $active;
+    $this->locale = $locale;
+    $this->thumbnail = $thumbnail;
+    $this->companySize = $companySize;
+    $this->cnpj = $cnpj;
+  }
+
   /**
    * Get the value of companySize
    * @return companySize
@@ -50,11 +79,12 @@ class UserStartup extends User
   /**
    * Set the value of companySize
    * @param string $companySize
-   * @return none
+   * @return $self
    */
   public function setCompanySize(string $companySize)
   {
     $this->companySize = $companySize;
+    return $this;
   }
 
   /**
@@ -69,10 +99,11 @@ class UserStartup extends User
   /**
    * Set the value of CNPJ
    * @param string $CNPJ
-   * @return none
+   * @return $self
    */
   public function setCNPJ(string $CNPJ)
   {
     $this->CNPJ = $CNPJ;
+    return $this;
   }
 }
