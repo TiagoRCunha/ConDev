@@ -1,0 +1,41 @@
+<app-navfeed></app-navfeed>
+<div class="contS-L bg-dark">
+    <div class="ui-fluid">
+        <div class="ui-g">
+            <div class="ui-g-12 ui-md-5">
+                <div class="ui-g-12">
+                    <img src="assets/img/user/user.svg" class="posicao">
+                    <div class="posicao2">
+                        <p-fileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" maxFileSize="1000000" (onUpload)="onBasicUpload($event)" [auto]="true"></p-fileUpload>
+                    </div>
+                    <div class="tagCon">
+                        <h3>Suas Tags</h3>
+                        <textarea [rows]="5" [cols]="30" pInputTextarea autoResize="autoResize"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-g-12 ui-md-7">
+                <div class="ui-g-12">
+                    <h3 class="first" style="text-align: center;">Atualize seus dados</h3>
+                    <div class="ui-inputgroup">
+                        <span class="ui-inputgroup-addon"><i class="pi pi-user-edit"></i></span>
+                        <input size="40" type="text" pInputText placeholder="Novo nome" pTooltip="Digite um novo nome">
+                    </div>
+                    <br>
+                    <div class="ui-inputgroup">
+                        <span class="ui-inputgroup-addon"><i class="pi pi-envelope"></i></span>
+                        <input size="40" type="text" pInputText placeholder="Novo email" pTooltip="Digite um novo email">
+                    </div>
+                    <br>
+                    <div class="ui-inputgroup">
+                        <span class="ui-inputgroup-addon"><i class="pi pi-home"></i></span>
+                        <input size="40" type="text" pInputText placeholder="Nova localização" pTooltip="Digite uma nova localização">
+                    </div>
+                    <br>
+                    <h3>Fale um pouco sobre você</h3>
+                    <textarea [rows]="5" [cols]="30" pInputTextarea autoResize="autoResize"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

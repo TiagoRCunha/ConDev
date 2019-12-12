@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 //Meus imports
@@ -37,7 +36,6 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { SideBarConfigComponent } from './components/side-bar-config/side-bar-config.component';
-import { SobreNosComponent } from './components/sobre-nos/sobre-nos.component';
 import { MenuModule, MenuItemContent } from 'primeng/menu';
 import { ToolbarModule } from 'primeng/toolbar';
 import { AutoCompleteModule } from 'primeng/autocomplete';
@@ -53,11 +51,12 @@ import { LoginAlterarComponent } from './login-alterar/login-alterar.component';
 import { SignTipoComponent } from './sign-tipo/sign-tipo.component';
 import { SignDevComponent } from './sign-dev/sign-dev.component';
 import { SignEmpComponent } from './sign-emp/sign-emp.component';
-import { routing } from './app.routing.module';
+import { routing, AppRoutingModule } from './app.routing.module';
 import { FeedComponent } from './feed/feed.component';
 import { NavfeedComponent } from './navfeed/navfeed.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FperfilComponent } from './fperfil/fperfil.component';
+import { SobreNosComponent } from './sobre-nos/sobre-nos.component';
 
 @NgModule({
   declarations: [
@@ -117,6 +116,7 @@ import { FperfilComponent } from './fperfil/fperfil.component';
     MenuModule,
     ToolbarModule,
     AutoCompleteModule,
+
     routing,
 
 

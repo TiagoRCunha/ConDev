@@ -5,7 +5,7 @@
     <div class="ui-toolbar-group-right">
         <div class="ui-inputgroup">
             <div style="margin-top: 2px;">
-                <p-autoComplete [(ngModel)]="text" [suggestions]="results" (completeMethod)="search($event)"></p-autoComplete>
+                <p-autoComplete [(ngModel)]="text" [suggestions]="results" (completeMethod)="search()"></p-autoComplete>
                 <button pButton type="button" icon="pi pi-search" style="margin-bottom: 3px;" class="ui-button-searc"></button>
             </div>
             <div>

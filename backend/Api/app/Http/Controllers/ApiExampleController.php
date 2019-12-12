@@ -17,7 +17,7 @@ class ApiExampleController extends Controller
     <h3>Rotas configuradas: </h3><br>
     <p><strong>User Developer get:</strong>/user/d/{id}</p>
     <h5>Exemplo:</h5>
-    <p>localhost:4000/user/d/5ddbf3db0ea32b1ab56942ad</p>
+    <p>localhost:5000/api/user/d/5ddbf3db0ea32b1ab56942ad</p>
     <h5>Resposta:</h5>
     <pre>
      [
@@ -51,7 +51,7 @@ class ApiExampleController extends Controller
     
     <p><strong>User Developer post:</strong>/user/d/</p>
     <h5>Exemplo:</h5>
-    <p>localhost:4000/user/d/</p>
+    <p>localhost:5000/api/user/d/</p>
     <h5>Corpo esperado:</h5>
     <pre>
     {
@@ -72,7 +72,7 @@ class ApiExampleController extends Controller
 
     <p><strong>User Startup get:</strong>/user/s/{id}</p>
     <h5>Exemplo:</h5>
-    <p>localhost:4000/user/s/5ddbf4ea0ea32b1ab56942ae</p>
+    <p>localhost:5000/api/user/s/5ddbf4ea0ea32b1ab56942ae</p>
     <h5>Resposta:</h5>
     <pre>
      [
@@ -105,7 +105,7 @@ class ApiExampleController extends Controller
     
     <p><strong>User Startup post:</strong>/user/s/</p>
     <h5>Exemplo:</h5>
-    <p>localhost:4000/user/s/</p>
+    <p>localhost:5000/api/user/s/</p>
     <h5>Corpo esperado:</h5>
     <pre>
     {
@@ -125,7 +125,7 @@ class ApiExampleController extends Controller
     
     <p><strong>User Chat All get:</strong>/user/{user_id}/c/</p>
     <h5>Exemplo:</h5>
-    <p>localhost:4000/user/5ddbf90b0ea32b1ab56942b3/c/</p>
+    <p>localhost:5000/api/user/5ddbf90b0ea32b1ab56942b3/c/</p>
     <h5>Resposta:</h5>
     <pre>
     [
@@ -166,7 +166,7 @@ class ApiExampleController extends Controller
     
     <p><strong>User Chat get:</strong>/user/{user_id}/c/{chat_id}</p>
     <h5>Exemplo:</h5>
-    <p>localhost:4000/user/5ddbf90b0ea32b1ab56942b3/c/5ddbf72b0ea32b1ab56942af</p>
+    <p>localhost:5000/api/user/5ddbf90b0ea32b1ab56942b3/c/5ddbf72b0ea32b1ab56942af</p>
     <h5>Resposta:</h5>
     <pre>
     [
@@ -207,7 +207,7 @@ class ApiExampleController extends Controller
     
     <p><strong>User Chat post:</strong>/user/{user_id}/c/</p>
     <h5>Exemplo:</h5>
-    <p>localhost:4000/user/5ddbf90b0ea32b1ab56942b3/c/
+    <p>localhost:5000/api/user/5ddbf90b0ea32b1ab56942b3/c/
     <h5>Corpo esperado:</h5>
     <pre>
     {

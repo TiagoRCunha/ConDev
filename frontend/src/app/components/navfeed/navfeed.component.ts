@@ -18,12 +18,13 @@ export class NavfeedComponent implements OnInit {
   ngOnInit() {
     this.items = [
       { label: 'Perfil', icon: 'pi pi-fw pi-user', routerLink: ['/perfil'] },
-      { label: 'Eventos', icon: 'pi pi-fw pi-ticket' },
+      { label: 'Eventos', icon: 'pi pi-fw pi-ticket', routerLink: ['/feed'] },
       { label: 'Enpresas', icon: 'pi pi-fw pi-id-card' },
-      { label: 'Sobre Nos', icon: 'pi pi-fw pi-users' },
+      { label: 'Sobre Nos', icon: 'pi pi-fw pi-users', routerLink: ['/sobrenos'] },
       { label: 'Sair', icon: 'pi pi-fw pi-sign-out' }
     ];
 
+  
 
     // search(event) {
     //   this.mylookupservice.getResults(event.query).then(data => {
@@ -32,4 +33,11 @@ export class NavfeedComponent implements OnInit {
     // }
 
   }
+
+  search(){
+
+    this.results = ['victor', 'henrique']
+
+  }
+
 }
