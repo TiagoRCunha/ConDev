@@ -9,6 +9,7 @@ import { SignDevComponent } from './sign-dev/sign-dev.component';
 import { SignEmpComponent } from './sign-emp/sign-emp.component';
 import { FeedComponent } from './feed/feed.component';
 import { FperfilComponent } from './fperfil/fperfil.component';
+import { SobreNosComponent } from './sobre-nos/sobre-nos.component';
 
 
 const AppRouter: Routes = [
@@ -22,8 +23,7 @@ const AppRouter: Routes = [
 
   { path: 'feed', component: FeedComponent },
   { path: 'perfil', component: FperfilComponent },
-
-
+  { path: 'sobrenos', component: SobreNosComponent },
 
 ];
 
