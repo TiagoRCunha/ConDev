@@ -61,7 +61,8 @@ class PollDAO
     $bulk->insert($poll);
     $cursor = Connection::getConnection();
 
-    $result = Connection::getConnection()->executeBulkWrite(
+    $result = $cursor
+      ->executeBulkWrite(
         Connection::getConf()
           ->database
           ->name . '.Poll',
