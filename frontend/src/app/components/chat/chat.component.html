@@ -1,0 +1,28 @@
+<div style="text-align:center">
+    <h1>
+      Condev network
+    </h1>
+  
+    <img width="110" src="assets/img/condev.png" />
+  
+    <div *ngIf="!userId" class="form-box">
+        <h3>Desenvolva o seu network</h3>
+  
+        <small>Digite seu nome </small>
+  
+        <form #chatInfoForm="ngForm" (ngSubmit)="joinRoom()">
+  
+            <label for="name">Nome:</label>
+            <input type="text" class="form-control" id="name"
+                   required
+                   [(ngModel)]="username" name="name"
+                   #name="ngModel">
+  
+            <button type="submit" class="btn btn-success" [disabled]="!chatInfoForm.form.valid">Entrar</button>
+        </form>
+    </div>
+  </div>
+  
+  <ng-chat *ngIf="userId" [adapter]="adapter" [userId]="userId" [historyEnabled]="false" [fileUploadUrl]="'http://localhost:3000/uploadFile'" [theme]="'dark-theme'"></ng-chat>
+  
+  

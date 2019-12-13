@@ -56,6 +56,13 @@ import { FeedComponent } from './components/feed/feed.component';
 import { NavfeedComponent } from './components/navfeed/navfeed.component';
 import { FperfilComponent } from './components/fperfil/fperfil.component';
 import { AppRoutingModule, routing } from './app.routing.module';
+import { ChatComponent } from './components/chat/chat.component';
+import { NgChatModule } from 'ng-chat';
+import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
+import { HttpModule } from '@angular/http';
+
+
+const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
 
 @NgModule({
@@ -74,10 +81,10 @@ import { AppRoutingModule, routing } from './app.routing.module';
     SignTipoComponent,
     SignDevComponent,
     SignEmpComponent,
-
     FeedComponent,
     NavfeedComponent,
     FperfilComponent,
+    ChatComponent,
   ],
   imports: [
     BrowserModule,
@@ -113,10 +120,11 @@ import { AppRoutingModule, routing } from './app.routing.module';
     MenuModule,
     ToolbarModule,
     AutoCompleteModule,
-
     routing,
-
-
+    NgChatModule,
+    HttpModule,
+    SocketIoModule,
+    SocketIoModule.forRoot(config) 
 
   ],
   schemas: [

@@ -10,6 +10,7 @@ import { SignEmpComponent } from './components/sign-emp/sign-emp.component';
 import { FeedComponent } from './components/feed/feed.component';
 import { FperfilComponent } from './components/fperfil/fperfil.component';
 import { SobreNosComponent } from './components/sobre-nos/sobre-nos.component';
+import { ChatComponent } from './components/chat/chat.component';
 
 const AppRouter: Routes = [
   { path: '', component: HomePageComponent },
@@ -19,7 +20,7 @@ const AppRouter: Routes = [
   { path: 'signtipo', component: SignTipoComponent },
   { path: 'signtipo/signdev', component: SignDevComponent },
   { path: 'signtipo/signemp', component: SignEmpComponent },
-
+  { path: 'chat', component: ChatComponent },
   { path: 'feed', component: FeedComponent },
   { path: 'perfil', component: FperfilComponent },
   { path: 'sobrenos', component: SobreNosComponent },
