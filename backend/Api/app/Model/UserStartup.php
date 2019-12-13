@@ -66,7 +66,7 @@ class UserStartup extends User
   /**
    * Set the value of companySize
    * @param string $companySize
-   * @return $self
+   * @return self
    */
   public function setCompanySize(string $companySize)
   {
@@ -86,7 +86,7 @@ class UserStartup extends User
   /**
    * Set the value of CNPJ
    * @param string $CNPJ
-   * @return $self
+   * @return self
    */
   public function setCNPJ(string $CNPJ)
   {
