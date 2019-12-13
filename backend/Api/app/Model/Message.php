@@ -27,6 +27,15 @@ class Message
   private $seen;
   private $send;
 
+  public function __construct(\Illuminate\Http\Request $args)
+  {
+    $this->user = $args->user ?? "";
+    $this->content = $args->content ?? "";
+    $this->edited = $args->edited ?? false;
+    $this->seen = $args->seen ?? false;
+    $this->send = $args->send ?? false;
+  }
+
   /**
    * Get the value of user
    * @return user

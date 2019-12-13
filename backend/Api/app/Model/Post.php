@@ -30,6 +30,16 @@ class Post
   private $deleted;
   private $type;
 
+  public function __construct(\Illuminate\Http\Request $args)
+  {
+    $this->content = $args->content ?? "";
+    $this->caption = $args->caption ?? "";
+    $this->tags = $args->tags ?? [""];
+    $this->registerDay = $args->registerDay ?? "";
+    $this->deleted = $args->deleted ?? false;
+    $this->type = $args->type ?? "";
+  }
+
   /**
    * Get the value of content
    * @return content

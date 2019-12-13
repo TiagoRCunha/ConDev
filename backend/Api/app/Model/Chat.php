@@ -27,6 +27,15 @@ class Chat
   private $messages;
   private $blocked;
 
+  public function __construct(\Illuminate\Http\Request $args)
+  {
+    $this->users = $args->users ?? [];
+    $this->caption = $args->caption ?? "";
+    $this->registerDay = $args->registerDay ?? "0";
+    $this->messages = $args->messages ?? [];
+    $this->blocked = $args->blocked ?? false;
+  }
+
   /**
    * Get the value of users
    * @return users

@@ -27,6 +27,15 @@ class Poll
   private $deleted;
   private $options;
 
+  public function __construct(\Illuminate\Http\Request $args)
+  {
+    $this->name = $args->name ?? "";
+    $this->votes = $args->votes ?? [""];
+    $this->user = $args->user ?? "";
+    $this->deleted = $args->deleted ?? false;
+    $this->options = $args->options ?? [""];
+  }
+
   /**
    * Get the value of name
    * @return name
