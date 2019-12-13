@@ -54,10 +54,8 @@ class UserDeveloperController extends Controller
 
     public function deleteUser(Request $request)
     {
-        $user = new \App\Model\UserDeveloper($request);
-
         return json_encode(
-          [ "success" => \App\Persistence\UserDeveloperDAO::deleteUser($user) ]
+          [ "success" => \App\Persistence\UserDeveloperDAO::deleteUser($request->id) ]
         );
 
     }
