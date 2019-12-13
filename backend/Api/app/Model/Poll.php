@@ -50,7 +50,7 @@ class Poll
    * Get the value of votes
    * @return votes
    */
-  public function getVotes(): string
+  public function getVotes(): array
   {
     return $this->votes;
   }
@@ -60,7 +60,7 @@ class Poll
    * @param string $votes
    * @return none
    */
-  public function setVotes(string $votes)
+  public function setVotes(array $votes)
   {
     $this->votes = $votes;
   }
@@ -69,7 +69,7 @@ class Poll
    * Get the value of user
    * @return user
    */
-  public function getUser(): object
+  public function getUser(): string
   {
     return $this->user;
   }
@@ -79,7 +79,7 @@ class Poll
    * @param object $user
    * @return none
    */
-  public function setUser(object $user)
+  public function setUser(string $user)
   {
     $this->user = $user;
   }
