@@ -35,12 +35,12 @@ class Event extends Post
 
   public function __construct($args)
   {
-    $this->content = $args->content ?? NULL;
-    $this->caption = $args->caption ?? NULL;
-    $this->tags = $args->tags ?? NULL;
-    $this->registerDay = $args->registerDay ?? NULL;
-    $this->deleted = $args->deleted ?? NULL;
-    $this->type = $args->type ?? NULL;
+    $this->content = $args->content ?? "";
+    $this->caption = $args->caption ?? "";
+    $this->tags = $args->tags ?? [""];
+    $this->registerDay = $args->registerDay ?? "";
+    $this->deleted = $args->deleted ?? false;
+    $this->type = $args->type ?? "";
     $this->name = $args->name ?? "";
     $this->startDate = $args->startDate ?? "";
     $this->endDate = $args->endDate ?? "";
