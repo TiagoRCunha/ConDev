@@ -8,7 +8,7 @@ import { MenuItem } from 'primeng/api';
 })
 export class FeedComponent implements OnInit {
   items: MenuItem[];
-
+  display: boolean = false;
   constructor() { }
 
   ngOnInit() {
@@ -19,7 +19,13 @@ export class FeedComponent implements OnInit {
       { label: 'Sobre Nos', icon: 'pi pi-fw pi-users' },
       { label: 'Sair', icon: 'pi pi-fw pi-sign-out' }
     ];
-  }
-}
 
+  }
+  showDialog() {
+    this.display = true;
+  }
+
+
+
+}
 

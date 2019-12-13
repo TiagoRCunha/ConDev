@@ -3,22 +3,26 @@
     <div class="ui-md-3"></div>
     <div class="ui-md-6">
         <div class="contS-L bg-dark">
+            <button type="button" (click)="showDialog()" pButton class="conDi" label="Divulgar"></button>
             <div class="post bg-dark">
                 <div>
-                    <img class="postImg" src="../../assets/temporario/la.jpg" alt="">{{link}}
+                    <img class="postImg" src="../../assets/temporario/la.jpg" alt="">
                     <p class="postTX">A Olympus Corporation é uma empresa japonesa de equipamentos ópticos. Fundada por Takeshi Yamashita, começou suas operações em outubro de 1919 produzindo microscópios e termômetros.</p>
                 </div>
             </div>
-            <div>
-                <img class="postImg" src="../../assets/temporario/la.jpg" alt="">{{link}}
-                <p class="postTX">A Olympus Corporation é uma empresa japonesa de equipamentos ópticos. Fundada por Takeshi Yamashita, começou suas operações em outubro de 1919 produzindo microscópios e termômetros.</p>
+            <div class="post bg-dark">
+                <div>
+                    <img class="postImg" src="../../../assets/temporario/lc.jpg" alt="">
+                    <p class="postTX">A Olympus Corporation é uma empresa japonesa de equipamentos ópticos. Fundada por Takeshi Yamashita, começou suas operações em outubro de 1919 produzindo microscópios e termômetros.</p>
+                </div>
             </div>
-            <div>
-                <img class="postImg" src="../../assets/temporario/la.jpg" alt="">{{link}}
-                <p class="postTX">A Olympus Corporation é uma empresa japonesa de equipamentos ópticos. Fundada por Takeshi Yamashita, começou suas operações em outubro de 1919 produzindo microscópios e termômetros.</p>
-            </div>
-
         </div>
     </div>
     <div class="ui-md-3"></div>
 </div>
+<p-dialog [(visible)]="display" [modal]="true" [responsive]="true">
+    <app-divulgar></app-divulgar>
+    <p-footer>
+        <button type="button" pButton icon="pi pi-check" (click)="display=false" label="Divulgar"></button>
+    </p-footer>
+</p-dialog>

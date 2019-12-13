@@ -1,41 +1,32 @@
-    <div class="ui-fluid">
-        <div class="ui-g">
-            <div class="ui-g-12 ui-md-5">
-                <div class="ui-g-12">
-                    <img src="assets/img/eventos/evento.png" style="max-width: 240px;margin-left: 40px;">
-                    <div style="max-width: 100px; position: relative; left: 100px;">
-                        <p-fileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" maxFileSize="1000000" (onUpload)="onBasicUpload($event)" [auto]="true"></p-fileUpload>
-                    </div>
-                    <h3>Informações sobre o evento</h3>
-                    <textarea [rows]="13" [cols]="30" pInputTextarea autoResize="autoResize"></textarea>
-                </div>
-            </div>
-            <div class="ui-g-12 ui-md-7">
-                <div class="ui-g-12">
-                    <h3 class="first" style="text-align: center;">Adicione os dados do evento</h3>
-                    <div class="ui-inputgroup">
-                        <span class="ui-inputgroup-addon"><i class="pi pi-user-edit"></i></span>
-                        <input size="40" type="text" pInputText placeholder="Nome do evento" pTooltip="Digite um novo nome">
-                    </div>
-                    <br>
-                    <div class="ui-inputgroup">
-                        <span class="ui-inputgroup-addon"><i class="pi pi-home"></i></span>
-                        <input size="40" type="text" pInputText placeholder="Localização do evento" pTooltip="Digite uma nova localização">
-                    </div>
-                    <br>
-                    <h3>Horário do evento</h3>
-                    <div class="ui-g-12 ui-md-4">
-                        <div class="ui-inputgroup">
-                            <span class="ui-inputgroup-addon"><i class="pi pi-calendar"></i></span>
-                            <p-calendar [style]="{'width':'250px'}" [(ngModel)]="date7" [showTime]="true"></p-calendar>
-                        </div>
-                    </div>
-                    <div style="margin-top: 100px;">
-                        <h3>Tags do evento</h3>
-                        <textarea [rows]="10" [cols]="30" pInputTextarea autoResize="autoResize"></textarea>
-                    </div>
-                </div>
+<div class="ui-g">
+    <div class="ui-lg-6 ui-md-6 ui-sm-12">
+        <div class="contS-L">
+            <img src="assets/img/eventos/evento.png" class="contS-L">
+            <div style="margin-left: 1px;">
+                <p-fileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" maxFileSize="1000000" (onUpload)="onBasicUpload($event)" [auto]="true"></p-fileUpload>
             </div>
         </div>
+        <h3>Informações sobre o evento</h3>
+        <textarea [rows]="10" [cols]="45" pInputTextarea autoResize="autoResize"></textarea>
     </div>
-
+    <div class="ui-lg-6 ui-md-6 ui-sm-12">
+        <h3 class="first" style="text-align: center;">Adicione os dados do evento</h3>
+        <div class="ui-inputgroup">
+            <span class="ui-inputgroup-addon"><i class="pi pi-user-edit"></i></span>
+            <input size="40" type="text" pInputText placeholder="Nome do evento" pTooltip="Digite um novo nome">
+        </div>
+        <br>
+        <div class="ui-inputgroup">
+            <span class="ui-inputgroup-addon"><i class="pi pi-home"></i></span>
+            <input size="40" type="text" pInputText placeholder="Localização do evento" pTooltip="Digite uma nova localização">
+        </div>
+        <br>
+        <div class="ui-inputgroup">
+            <span class="ui-inputgroup-addon"><i class="pi pi-calendar"></i></span>
+            <p-calendar [(ngModel)]="date7" [showTime]="true"></p-calendar>
+        </div>
+        <div style="margin-top: 72px;">
+            <h3>Tags do evento</h3>
+            <textarea [rows]="10" [cols]="45" pInputTextarea autoResize="autoResize"></textarea>
+        </div>
+    </div>

@@ -35,7 +35,6 @@ import { ComponenteExemploComponent } from './components/componente-exemplo/comp
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { InputSwitchModule } from 'primeng/inputswitch';
-import { SideBarConfigComponent } from './components/side-bar-config/side-bar-config.component';
 import { MenuModule, MenuItemContent } from 'primeng/menu';
 import { ToolbarModule } from 'primeng/toolbar';
 import { AutoCompleteModule } from 'primeng/autocomplete';
@@ -44,19 +43,20 @@ import { AutoCompleteModule } from 'primeng/autocomplete';
 import { FormsModule } from '@angular/forms';
 import { EditarPerfilComponent } from './components/editar-perfil/editar-perfil.component';
 import { DivulgarComponent } from './components/divulgar/divulgar.component';
-import { HomePageComponent } from './home-pagen/home-page.component';
-import { LoginComponent } from './login/login.component';
-import { LoginEsqueciComponent } from './login-esqueci/login-esqueci.component';
-import { LoginAlterarComponent } from './login-alterar/login-alterar.component';
-import { SignTipoComponent } from './sign-tipo/sign-tipo.component';
-import { SignDevComponent } from './sign-dev/sign-dev.component';
-import { SignEmpComponent } from './sign-emp/sign-emp.component';
-import { routing, AppRoutingModule } from './app.routing.module';
-import { FeedComponent } from './feed/feed.component';
-import { NavfeedComponent } from './navfeed/navfeed.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { FperfilComponent } from './fperfil/fperfil.component';
-import { SobreNosComponent } from './sobre-nos/sobre-nos.component';
+import { SobreNosComponent } from './components/sobre-nos/sobre-nos.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { HomePageComponent } from './components/home-pagen/home-page.component';
+import { LoginComponent } from './components/login/login.component';
+import { LoginEsqueciComponent } from './components/login-esqueci/login-esqueci.component';
+import { LoginAlterarComponent } from './components/login-alterar/login-alterar.component';
+import { SignTipoComponent } from './components/sign-tipo/sign-tipo.component';
+import { SignDevComponent } from './components/sign-dev/sign-dev.component';
+import { SignEmpComponent } from './components/sign-emp/sign-emp.component';
+import { FeedComponent } from './components/feed/feed.component';
+import { NavfeedComponent } from './components/navfeed/navfeed.component';
+import { FperfilComponent } from './components/fperfil/fperfil.component';
+import { AppRoutingModule, routing } from './app.routing.module';
+
 
 @NgModule({
   declarations: [
@@ -64,7 +64,6 @@ import { SobreNosComponent } from './sobre-nos/sobre-nos.component';
     DivulgarComponent,
     ComponenteExemploComponent,
     EditarPerfilComponent,
-    SideBarConfigComponent,
     SobreNosComponent,
 
     NavbarComponent,
@@ -79,8 +78,6 @@ import { SobreNosComponent } from './sobre-nos/sobre-nos.component';
     FeedComponent,
     NavfeedComponent,
     FperfilComponent,
-
-
   ],
   imports: [
     BrowserModule,

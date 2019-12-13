@@ -1,16 +1,15 @@
 import { NgModule, ModuleWithProviders, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomePageComponent } from './home-pagen/home-page.component';
-import { LoginComponent } from './login/login.component';
-import { LoginEsqueciComponent } from './login-esqueci/login-esqueci.component';
-import { LoginAlterarComponent } from './login-alterar/login-alterar.component';
-import { SignTipoComponent } from './sign-tipo/sign-tipo.component';
-import { SignDevComponent } from './sign-dev/sign-dev.component';
-import { SignEmpComponent } from './sign-emp/sign-emp.component';
-import { FeedComponent } from './feed/feed.component';
-import { FperfilComponent } from './fperfil/fperfil.component';
-import { SobreNosComponent } from './sobre-nos/sobre-nos.component';
-
+import { HomePageComponent } from './components/home-pagen/home-page.component';
+import { LoginComponent } from './components/login/login.component';
+import { LoginEsqueciComponent } from './components/login-esqueci/login-esqueci.component';
+import { LoginAlterarComponent } from './components/login-alterar/login-alterar.component';
+import { SignTipoComponent } from './components/sign-tipo/sign-tipo.component';
+import { SignDevComponent } from './components/sign-dev/sign-dev.component';
+import { SignEmpComponent } from './components/sign-emp/sign-emp.component';
+import { FeedComponent } from './components/feed/feed.component';
+import { FperfilComponent } from './components/fperfil/fperfil.component';
+import { SobreNosComponent } from './components/sobre-nos/sobre-nos.component';
 
 const AppRouter: Routes = [
   { path: '', component: HomePageComponent },
