@@ -48,11 +48,12 @@ class Poll
   /**
    * Set the value of name
    * @param string $name
-   * @return none
+   * @return self
    */
   public function setName(string $name)
   {
     $this->name = $name;
+    return $this;
   }
 
   /**
@@ -67,11 +68,12 @@ class Poll
   /**
    * Set the value of votes
    * @param string $votes
-   * @return none
+   * @return self
    */
   public function setVotes(array $votes)
   {
     $this->votes = $votes;
+    return $this;
   }
 
   /**
@@ -86,11 +88,12 @@ class Poll
   /**
    * Set the value of user
    * @param object $user
-   * @return none
+   * @return self
    */
   public function setUser(string $user)
   {
     $this->user = $user;
+    return $this;
   }
 
   /**
@@ -105,11 +108,12 @@ class Poll
   /**
    * Set the value of deleted
    * @param bool $deleted
-   * @return none
+   * @return self
    */
   public function setDeleted(bool $deleted)
   {
     $this->deleted = $deleted;
+    return $this;
   }
 
   /**
@@ -124,10 +128,11 @@ class Poll
   /**
    * Set the value of options
    * @param array $options
-   * @return none
+   * @return self
    */
   public function setOptions(array $options)
   {
     $this->options = $options;
+    return $this;
   }
 }
