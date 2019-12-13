@@ -41,36 +41,21 @@ class UserDeveloper extends User
   private $following;
   private $birthDate;
 
-  public function __construct(
-    $name = "",
-    $cep = "",
-    $phone = "",
-    $email = "",
-    $password = "",
-    $description = "",
-    $tags = [""],
-    $active = true,
-    $locale = "",
-    $thumbnail = "",
-    $ocupation = "",
-    $following = [""],
-    $birthDate = ""
-  )
+  public function __construct(\Illuminate\Http\Request $args)
   {
-    $this->name = $name;
-    $this->cep = $cep;
-    $this->phone = $phone;
-    $this->email = $email;
-    $this->password = $password;
-    $this->description = $description;
-    $this->tags = $tags;
-    $this->active = $active;
-    $this->locale = $locale;
-    $this->thumbnail = $thumbnail;
-    $this->ocupation =$ocupation;
-    $this->following = $following;
-    $this->birthDate = $birthDate;
-
+    $this->name = $args->name ?? "";
+    $this->cep = $args->cep ?? "";
+    $this->phone = $args->phone ?? "";
+    $this->email = $args->email ?? "";
+    $this->password = $args->password ?? "";
+    $this->description = $args->description ?? "";
+    $this->tags = $args->tags ?? [""];
+    $this->active = $args->active ?? true;
+    $this->locale = $args->locale ?? "";
+    $this->thumbnail = $args->thumbnail ?? "";
+    $this->ocupation = $args->ocupation ?? "";
+    $this->following = $args->following ?? [""];
+    $this->birthDate = $args->birthDate ?? "";
   }
   /**
    * Get the value of ocupation
