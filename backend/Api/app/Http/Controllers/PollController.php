@@ -20,17 +20,9 @@ class PollController extends Controller
     {
         $poll = new \App\Model\Poll($request);
 
-        return json_encode([
-            "name" => $poll->getName(),
-            "user" => $poll->getUser(),
-            "votes" => $poll->getVotes(),
-            "options" => $poll->getOptions(),
-            "deleted" => $poll->getDeleted()
-        ]);
-
-        // return json_encode(
-        //     [ "success" => \App\Persistence\PollDAO::insertPoll($poll)]
-        // );
+        return json_encode(
+            [ "success" => \App\Persistence\PollDAO::insertPoll($poll) ]
+        );
     }
 
     public function updatePoll(Request $request)
