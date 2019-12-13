@@ -33,6 +33,19 @@ class Event extends Post
   private $startDate;
   private $endDate;
 
+  public function __construct($args)
+  {
+    $this->content = $args->content ?? "";
+    $this->caption = $args->caption ?? "";
+    $this->tags = $args->tags ?? [""];
+    $this->registerDay = $args->registerDay ?? "";
+    $this->deleted = $args->deleted ?? false;
+    $this->type = $args->type ?? "";
+    $this->name = $args->name ?? "";
+    $this->startDate = $args->startDate ?? "";
+    $this->endDate = $args->endDate ?? "";
+  }
+
   /**
    * Get the value of name
    * @return name

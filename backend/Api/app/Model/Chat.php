@@ -15,7 +15,6 @@ namespace App\Model;
  * @method getBlocked
  * @method setUsers
  * @method setCaption
- * @method setContent
  * @method setRegisterDay
  * @method setMessages
  * @method setBlocked
@@ -24,10 +23,18 @@ class Chat
 {
   private $users;
   private $caption;
-  private $content;
   private $registerDay;
   private $messages;
   private $blocked;
+
+  public function __construct(\Illuminate\Http\Request $args)
+  {
+    $this->users = $args->users ?? [];
+    $this->caption = $args->caption ?? "";
+    $this->registerDay = $args->registerDay ?? "0";
+    $this->messages = $args->messages ?? [];
+    $this->blocked = $args->blocked ?? false;
+  }
 
   /**
    * Get the value of users
@@ -46,25 +53,6 @@ class Chat
   public function setUsers(array $users)
   {
     $this->users = $users;
-  }
-
-  /**
-   * Get the value of content
-   * @return content
-   */
-  public function getContent(): string
-  {
-    return $this->content;
-  }
-
-  /**
-   * Set the value of content
-   * @param string $content
-   * @return none
-   */
-  public function setContent(string $content)
-  {
-    $this->content = $content;
   }
 
   /**

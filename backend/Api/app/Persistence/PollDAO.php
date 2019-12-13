@@ -7,28 +7,105 @@
 
 namespace App\Persistence;
 
-use \Persistence\IDao as IDao;
-
-// TODO
-class PollDao implements IDao
+class PollDAO
 {
 
-  function insert(\Model\User $user): bool
+  public static function getPollById($id)
   {
-    return false;
+    $object_id = new \MongoDB\BSON\ObjectId($id);
+    $query = new \MongoDB\Driver\Query(['_id' => $object_id]);
+
+    $cursor = Connection::getConnection()
+        ->executeQuery(
+          Connection::getConf()
+            ->database
+            ->name . '.Poll',
+          $query
+        );
+
+    $arr_polls = [];
+
+    foreach ($cursor as $document) {
+
+      $arr_polls[] = $document;
+    };
+
+    return $arr_polls;
   }
 
-  function getAll()
-  { }
-  function findById(int $id)
-  { }
-  function update(Object $data): bool
+  public static function getAll()
   {
-    return false;
+    $query = new \MongoDB\Driver\Query([]);
+
+    $cursor = Connection::getConnection()
+        ->executeQuery(
+            Connection::getConf()
+                ->database
+                ->name . '.Poll',
+            $query
+        );
+
+    $arr_polls = [];
+
+    foreach ($cursor as $document) {
+      $arr_polls[] = $document;
+    };
+
+    return $arr_polls;
   }
 
-  function delete(Object $data): bool
+
+  public static function insertPoll($poll)
   {
-    return false;
+    $bulk = new \MongoDB\Driver\BulkWrite();
+    $bulk->insert($poll);
+    $cursor = Connection::getConnection();
+
+    $result = $cursor
+      ->executeBulkWrite(
+        Connection::getConf()
+          ->database
+          ->name . '.Poll',
+        $bulk
+      );
+
+    return $result->getInsertedCount() > 0;
+  }
+
+
+  public static function deletePoll($id)
+  {
+    $object_id = new \MongoDB\BSON\ObjectId($id);
+
+    $bulk = new \MongoDB\Driver\BulkWrite();
+    $bulk->delete(['_id' => $object_id]);
+
+    $result = Connection::getConnection()->executeBulkWrite(
+        Connection::getConf()
+          ->database
+          ->name . '.Poll', $bulk
+        );
+
+    return $result->getDeletedCount() > 0;
+  }
+
+  public static function updatePoll($id, $poll)
+  {
+    $object_id = new \MongoDB\BSON\ObjectId($id);
+    $poll_data = $poll;
+
+    $bulk = new \MongoDB\Driver\BulkWrite();
+    $bulk->update(
+      ['_id' => $object_id],
+      ['$set' => $poll_data]
+    );
+
+    $result = Connection::getConnection()->executeBulkWrite(
+        Connection::getConf()
+          ->database
+          ->name . '.Poll', $bulk
+        );
+
+    return $result->getModifiedCount() > 0;
   }
 }

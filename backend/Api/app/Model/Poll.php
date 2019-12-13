@@ -27,6 +27,15 @@ class Poll
   private $deleted;
   private $options;
 
+  public function __construct(\Illuminate\Http\Request $args)
+  {
+    $this->name = $args->name ?? "";
+    $this->votes = $args->votes ?? [""];
+    $this->user = $args->user ?? "";
+    $this->deleted = $args->deleted ?? false;
+    $this->options = $args->options ?? [""];
+  }
+
   /**
    * Get the value of name
    * @return name
@@ -39,18 +48,19 @@ class Poll
   /**
    * Set the value of name
    * @param string $name
-   * @return none
+   * @return self
    */
   public function setName(string $name)
   {
     $this->name = $name;
+    return $this;
   }
 
   /**
    * Get the value of votes
    * @return votes
    */
-  public function getVotes(): string
+  public function getVotes(): array
   {
     return $this->votes;
   }
@@ -58,18 +68,19 @@ class Poll
   /**
    * Set the value of votes
    * @param string $votes
-   * @return none
+   * @return self
    */
-  public function setVotes(string $votes)
+  public function setVotes(array $votes)
   {
     $this->votes = $votes;
+    return $this;
   }
 
   /**
    * Get the value of user
    * @return user
    */
-  public function getUser(): object
+  public function getUser(): string
   {
     return $this->user;
   }
@@ -77,11 +88,12 @@ class Poll
   /**
    * Set the value of user
    * @param object $user
-   * @return none
+   * @return self
    */
-  public function setUser(object $user)
+  public function setUser(string $user)
   {
     $this->user = $user;
+    return $this;
   }
 
   /**
@@ -96,11 +108,12 @@ class Poll
   /**
    * Set the value of deleted
    * @param bool $deleted
-   * @return none
+   * @return self
    */
   public function setDeleted(bool $deleted)
   {
     $this->deleted = $deleted;
+    return $this;
   }
 
   /**
@@ -115,10 +128,11 @@ class Poll
   /**
    * Set the value of options
    * @param array $options
-   * @return none
+   * @return self
    */
   public function setOptions(array $options)
   {
     $this->options = $options;
+    return $this;
   }
 }

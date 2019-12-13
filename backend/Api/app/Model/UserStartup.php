@@ -38,33 +38,20 @@ class UserStartup extends User
   private $companySize;
   private $CNPJ;
 
-  public function __construct(
-    $name = "",
-    $cep = "",
-    $phone = "",
-    $email = "",
-    $password = "",
-    $description = "",
-    $tags = [""],
-    $active = true,
-    $locale = "",
-    $thumbnail = "",
-    $companySize = "0",
-    $cnpj = ""
-  )
+  public function __construct(\Illuminate\Http\Request $args)
   {
-    $this->name = $name;
-    $this->cep = $cep;
-    $this->phone = $phone;
-    $this->email = $email;
-    $this->password = $password;
-    $this->description = $description;
-    $this->tags = $tags;
-    $this->active = $active;
-    $this->locale = $locale;
-    $this->thumbnail = $thumbnail;
-    $this->companySize = $companySize;
-    $this->cnpj = $cnpj;
+    $this->name = $args->name ?? "";
+    $this->cep = $args->cep ?? "";
+    $this->phone = $args->phone ?? "";
+    $this->email = $args->email ?? "";
+    $this->password = $args->password ?? "";
+    $this->description = $args->description ?? "";
+    $this->tags = $args->tags ?? [""];
+    $this->active = $args->active ?? true;
+    $this->locale = $args->locale ?? "";
+    $this->thumbnail = $args->thumbnail ?? "";
+    $this->companySize = $args->companySize ?? "0";
+    $this->cnpj = $args->cnpj ?? "";
   }
 
   /**
@@ -79,7 +66,7 @@ class UserStartup extends User
   /**
    * Set the value of companySize
    * @param string $companySize
-   * @return $self
+   * @return self
    */
   public function setCompanySize(string $companySize)
   {
@@ -99,7 +86,7 @@ class UserStartup extends User
   /**
    * Set the value of CNPJ
    * @param string $CNPJ
-   * @return $self
+   * @return self
    */
   public function setCNPJ(string $CNPJ)
   {

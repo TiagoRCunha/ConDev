@@ -27,11 +27,20 @@ class Message
   private $seen;
   private $send;
 
+  public function __construct(\Illuminate\Http\Request $args)
+  {
+    $this->user = $args->user ?? "";
+    $this->content = $args->content ?? "";
+    $this->edited = $args->edited ?? false;
+    $this->seen = $args->seen ?? false;
+    $this->send = $args->send ?? false;
+  }
+
   /**
    * Get the value of user
    * @return user
    */
-  public function getUser(): User
+  public function getUser(): string
   {
     return $this->user;
   }
@@ -41,7 +50,7 @@ class Message
    * @param User $user
    * @return none
    */
-  public function setUser(User $user)
+  public function setUser(string $user)
   {
     $this->user = $user;
   }

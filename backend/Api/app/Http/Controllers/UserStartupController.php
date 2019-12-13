@@ -21,7 +21,7 @@ class UserStartupController extends Controller
 
   public function setUser(Request $request)
   {
-    $user = new \App\Model\UserStartup($request->all());
+    $user = new \App\Model\UserStartup($request);
 
     return json_encode(
       [ "success" => \App\Persistence\UserStartupDAO::insertUser($user) ]
@@ -36,9 +36,9 @@ class UserStartupController extends Controller
 
   }
 
-  public function updateUser(string $id, Request $request)
+  public function updateUser(Request $request)
   {
-    $user = new \App\Model\UserStartup($request->all());
+    $user = new \App\Model\UserStartup($request);
 
     return json_encode(
       [ "success" => \App\Persistence\UserStartupDAO::updateUser($request->id, $user) ]
