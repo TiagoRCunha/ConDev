@@ -56,3 +56,13 @@ Route::get('/user/{user_id}/c/{chat_id}', 'ChatController@getChat')->name('getCh
 Route::post('/user/{user_id}/c/', 'ChatController@setChat')->name('setChat');
 
 Route::get('/user/{user_id}/m/{message_id}', 'MessageController@getMessage')->name('getMessage');
+
+Route::get('/poll/{id}/', 'PollController@getPoll')->name('getPoll');
+
+Route::get('/polls', 'PollController@getAll')->name('getAllPolls');
+
+Route::post('/poll', 'PollController@setPoll')->name('setPoll');
+
+Route::put('/poll/{id}', 'PollController@updatePoll')->name('updatePoll');
+
+Route::delete('/poll/{id}', 'PollController@deletePoll')->name('deletePoll');
