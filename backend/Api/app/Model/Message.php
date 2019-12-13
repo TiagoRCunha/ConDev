@@ -40,7 +40,7 @@ class Message
    * Get the value of user
    * @return user
    */
-  public function getUser(): User
+  public function getUser(): string
   {
     return $this->user;
   }
@@ -50,7 +50,7 @@ class Message
    * @param User $user
    * @return none
    */
-  public function setUser(User $user)
+  public function setUser(string $user)
   {
     $this->user = $user;
   }
