@@ -23,7 +23,7 @@
     "@angular/router": "~8.2.8",
     "angular-ui-carousel": "^0.1.10",
     "bootstrap": "^4.4.1",
-    "chart.js": "^2.9.1",
+    "chart.js": "^2.9.4",
     "core-js": "^2.5.7",
     "ng-chat": "^2.0.4",
     "ng-socket-io": "^0.2.4",
